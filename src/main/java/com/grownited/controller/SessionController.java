@@ -1,12 +1,16 @@
 package com.grownited.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+
+@Controller
 public class SessionController {
 	
-	@GetMapping("signup")
+	@GetMapping(value = {"signup","/"})
 	public String signup() {
-		//
+		
 		return "Signup"; 
 	}
 
@@ -14,5 +18,11 @@ public class SessionController {
 	public String login() {
 		return "Login";
 	}
+	
+	@GetMapping("forgetpassword")
+	public String forgetpassword() {
+		return "ForgetPassword";
+	}
+	
 	
 }
