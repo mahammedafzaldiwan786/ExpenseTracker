@@ -19,9 +19,9 @@
 		
 		Email: <input type="text"><br><br>
 		
-		Password: <input type="text"><br><br>
+		Password: <input type="password"><br><br>
 		
-		Confirm Password: <input type="text"><br><br>
+		Confirm Password: <input type="password"><br><br>
 		
 		Gender : <input type="text"><br><br>
 		
