@@ -10,7 +10,7 @@
 	
 	<h2>Login</h2>
 	
-	<form action="">
+	<form action="sendOtp" method="post">
 	
 		Email : <input type="text"><br><br>
 		
