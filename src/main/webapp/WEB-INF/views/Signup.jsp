@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Signup</title>
 </head>
 <body>
 	
@@ -13,21 +13,22 @@
 	
 	<form action="saveuser" method="post" >
 	
-		First Name: <input type="text"><br><br>
+		First Name: <input type="text" name="firstName"><br><br>
 		
-		Last Name: <input type="text"><br><br>
+		Last Name: <input type="text" name="lastName"><br><br>
 		
-		Email: <input type="text"><br><br>
+		Email: <input type="text" name="email"><br><br>
 		
-		Password: <input type="password"><br><br>
+		Password: <input type="password" name="password"><br><br>
 		
-		Confirm Password: <input type="password"><br><br>
+		Confirm Password: <input type="password" name="password"><br><br>
 		
-		Gender : <input type="text"><br><br>
+		Gender : Male <input type="radio" name="gender" value="male"> 
+				 Female <input type="radio" name="gender" value="female"><br><br>
 		
-		Date of Birth : <input type="text"><br><br>
+		Born Year : <input type="text" name="bornYear"><br><br>
 		
-		Contect No.: <input type="text"><br><br>
+		Contect No.: <input type="text" name="contactNum"><br><br>
 		
 		<input type="submit" value="Signup"><br>
 	

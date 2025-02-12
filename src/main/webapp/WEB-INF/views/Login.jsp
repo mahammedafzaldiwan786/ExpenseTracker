@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	
 	<h2>Login</h2>
 	
-	<form action="sendOtp" method="post">
+	<form action="home" method="post">
 	
-		Email : <input type="text"><br><br>
+		Email : <input type="text" name="email"><br><br>
 		
-		Password : <input type="password"><br><br>
+		Password : <input type="password" name="password"><br><br>
 		
 		<input type="submit" value="Login">
 		
