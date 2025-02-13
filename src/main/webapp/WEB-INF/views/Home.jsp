@@ -9,6 +9,8 @@
 <body>
 	
 	<h2>Home</h2>
+	
 	<a href="signup">Signup</a>
+	
 </body>
 </html>
