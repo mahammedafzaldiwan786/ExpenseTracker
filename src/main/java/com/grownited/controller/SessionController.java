@@ -25,22 +25,7 @@ public class SessionController {
 		return "Signup"; 
 	}
 	
-	@PostMapping("saveuser")
-	public String saveuser(UserEntity userEntity) {
-		
-		System.out.println(userEntity.getFirstName());
-		System.out.println(userEntity.getLastName());
-		System.out.println(userEntity.getEmail());
-		System.out.println(userEntity.getPassword());
-		System.out.println(userEntity.getGender());
-		System.out.println(userEntity.getBornYear());
-		System.out.println(userEntity.getContactNum());
-		
-		reposiroryUser.save(userEntity);
-		
-		
-		return "Login";
-	}
+	
 	
 
 	@GetMapping("login")
