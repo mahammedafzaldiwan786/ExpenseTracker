@@ -14,6 +14,17 @@
 
 	<table border="1">
 	
+			<tr>
+				<th>User ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Contect No.</th>							
+				<th>Birth Year</th>
+				<th>Gender</th>
+				
+			</tr>
+	
 		<c:forEach items="${userList}" var="u">
 			
 			<tr>

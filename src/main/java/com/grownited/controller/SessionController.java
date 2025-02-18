@@ -4,12 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
-
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -19,14 +15,12 @@ public class SessionController {
 	@Autowired
 	UserRepository reposiroryUser;
 	
-	@GetMapping(value = {"signup","/"})
+	
+	
+	@GetMapping(value = {"signup","newuser","/"})
 	public String signup() {
-		
 		return "Signup"; 
 	}
-	
-	
-	
 
 	@GetMapping("login")
 	public String login() {

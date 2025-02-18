@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
+import com.grownited.service.MailService;
 
 @Controller
 public class UserController {
@@ -17,11 +18,8 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@GetMapping("")
-	public String newUser() {
-		
-		return "Signup";
-	}
+	@Autowired
+	MailService mailService;
 	
 	@PostMapping("saveuser")
 	public String saveuser(UserEntity userEntity) {
@@ -36,9 +34,10 @@ public class UserController {
 		
 		userRepository.save(userEntity);
 		
+		// send mail
+		mailService.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		
-		
-		return "Login";
+		return "redirect:/listuser";
 	}
 	
 	
