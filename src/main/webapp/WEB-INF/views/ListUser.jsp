@@ -22,7 +22,6 @@
 				<th>Contect No.</th>							
 				<th>Birth Year</th>
 				<th>Gender</th>
-				
 			</tr>
 	
 		<c:forEach items="${userList}" var="u">
