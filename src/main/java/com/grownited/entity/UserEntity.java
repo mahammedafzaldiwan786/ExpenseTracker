@@ -1,5 +1,7 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,10 +21,13 @@ public class UserEntity {
 	private String password;
 	private String contactNum;
 	private String city;
-	private String bornYear;
+	private String state;
+	private LocalDate dateOfBirth;
 	private String gender;
 	private String role;
-	
+	private Boolean active;
+	private String createdAt;
+	private Integer otp;
 	
 	
 	
@@ -68,11 +73,11 @@ public class UserEntity {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getBornYear() {
-		return bornYear;
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
 	}
-	public void setBornYear(String bornYear) {
-		this.bornYear = bornYear;
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 	public String getGender() {
 		return gender;
@@ -86,6 +91,33 @@ public class UserEntity {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public Boolean getActive() {
+		return active;
+	}
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Integer getOtp() {
+		return otp;
+	}
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	
+	
 	
 	
 	

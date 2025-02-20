@@ -10,20 +10,23 @@
 	
 	<h2>Login</h2>
 	
-	<form action="home" method="post">
-	
-		Email : <input type="text" name="email"><br><br>
+	<form action="authenticate" method="post">
+		Email :<input type="text" name="email"/><br><Br> 
+		Password : <input type="password" name="password"/><br><br> 
 		
-		Password : <input type="password" name="password"><br><br>
-		
-		<input type="submit" value="Login">
-		
-		<a href="forgetpassword">Forget Password?</a>
-	
+		<input type="submit" value="Login"/>
 	</form>
 	
-	<br><br>
-	<a href="signup">Signup</a>
+	
+	${error}
+	<br><br> 
+	
+	<a href="signup">Signup</a> 
+	
+	<br><br> 
+	
+	<a href="forgetpassword">ForgetPassword?</a> 
+	
 	
 </body>
 </html>

@@ -1,7 +1,11 @@
 package com.grownited.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.UserEntity;
@@ -13,7 +17,11 @@ import com.grownited.repository.UserRepository;
 public class SessionController {
 	
 	@Autowired
-	UserRepository reposiroryUser;
+	UserRepository userRepository;
+	
+	
+	@Autowired
+	PasswordEncoder encoder;
 	
 	
 	
@@ -27,7 +35,25 @@ public class SessionController {
 		return "Login";
 	}
 	
-	@PostMapping("home")
+	@PostMapping("authenticate")
+	public String authenticate(String email, String password,Model model) {
+		System.out.println(email);
+		System.out.println(password);
+		
+		Optional<UserEntity> op = userRepository.findByEmail(email);
+		
+		if (op.isPresent()) {
+			
+			UserEntity dbUser = op.get();
+			if (encoder.matches(password, dbUser.getPassword())) {
+				return "redirect:/home";
+			}
+		}
+		model.addAttribute("error","Invalid Credentials");
+		return "Login";
+	}
+	
+	@GetMapping("home")
 	public String home() {
 		
 		return "Home";

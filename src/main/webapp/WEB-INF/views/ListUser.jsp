@@ -19,22 +19,27 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
-				<th>Contect No.</th>							
-				<th>Birth Year</th>
+				<th>Contact No.</th>
+				<th>City</th>	
+				<th>State</th>							
+				<th>Date of  Birth</th>
 				<th>Gender</th>
+				<th>Action</th>
 			</tr>
 	
-		<c:forEach items="${userList}" var="u">
+		<c:forEach items="${userList}" var="user">
 			
 			<tr>
-				<td>${u.userId }</td>
-				<td>${u.firstName }</td>
-				<td>${u.lastName }</td>
-				<td>${u.email }</td>
-				<td>${u.contactNum }</td>							
-				<td>${u.bornYear }</td>
-				<td>${u.gender }</td>
-				
+				<td>${user.userId }</td>
+				<td>${user.firstName }</td>
+				<td>${user.lastName }</td>
+				<td>${user.email }</td>
+				<td>${user.contactNum }</td>
+				<td>${user.city }</td>
+				<td>${user.state }</td>							
+				<td>${user.dateOfBirth }</td>
+				<td>${user.gender }</td>
+				<td><a href="viewuser?userId=${user.userId}">View</a> | Edit | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
 			</tr>
 		</c:forEach>
 	</table>

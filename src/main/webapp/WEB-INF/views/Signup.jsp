@@ -21,14 +21,18 @@
 		
 		Password: <input type="password" name="password"><br><br>
 		
-		Confirm Password: <input type="password" name="password"><br><br>
+		Contact No.: <input type="text" name="contactNum"><br><br>
+		
+		City: <input type="text" name="city"><br><br>
+		
+		State: <input type="text" name="state"><br><br>
 		
 		Gender : Male <input type="radio" name="gender" value="male"> 
 				 Female <input type="radio" name="gender" value="female"><br><br>
 		
-		Born Year : <input type="text" name="bornYear"><br><br>
+		Date of Birth : <input type="date" name="dateOfBirth"><br><br>
 		
-		Contect No.: <input type="text" name="contactNum"><br><br>
+		
 		
 		<input type="submit" value="Signup"><br>
 	

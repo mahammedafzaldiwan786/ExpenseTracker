@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +34,7 @@ public class UserController {
 		System.out.println(userEntity.getEmail());
 		System.out.println(userEntity.getPassword());
 		System.out.println(userEntity.getGender());
-		System.out.println(userEntity.getBornYear());
+		System.out.println(userEntity.getDateOfBirth());
 		System.out.println(userEntity.getContactNum());
 		
 		userEntity.setRole("USER");
@@ -60,5 +61,34 @@ public class UserController {
 		return "ListUser";
 	}
 	
+	@GetMapping("viewuser")
+	public String viewuser(Integer userId,Model model) {
+		
+		System.out.println("User ID : "+userId);
+		
+		Optional<UserEntity> op = userRepository.findById(userId);
+		
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			 UserEntity user = op.get();
+			// send data to jsp ->
+			model.addAttribute("user", user);
+
+		}
+		
+		return "ViewUser";
+	}
 	
+	
+	@GetMapping("deleteuser")
+	public String deleteuser(Integer userId) {
+		
+		userRepository.deleteById(userId);
+		
+		System.out.println("User successfully deleted!");
+		
+		return "redirect:/listuser";
+	}
 }
