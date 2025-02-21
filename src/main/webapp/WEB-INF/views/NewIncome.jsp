@@ -7,14 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New Expense</title>
+<title>New Income</title>
 </head>
 <body>
-
-	<h2>New Expense</h2>
 	
 	
-	<form action="saveexpense" method="post" >
+		<h2>New Income</h2>
+	
+	
+	<form action="saveincome" method="post" >
 	
 		Title: <input type="text" name="title"><br><br>
 		
@@ -26,11 +27,13 @@
 		
 		Description: <input type="text" name="description"><br><br>
 		
-		<input type="submit" value="Save Expense"><br>
+		<input type="submit" value="Save Income"><br>
 	
 	
 	</form>
 
+	
+	
 	
 </body>
 </html>
