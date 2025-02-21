@@ -38,6 +38,7 @@ public class UserController {
 		System.out.println(userEntity.getContactNum());
 		
 		userEntity.setRole("USER");
+		userEntity.setActive(true);
 		
 		String encPassword = encoder.encode(userEntity.getPassword());
 		userEntity.setPassword(encPassword);
