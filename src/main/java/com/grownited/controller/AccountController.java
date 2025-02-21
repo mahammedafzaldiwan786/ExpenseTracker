@@ -42,7 +42,7 @@ public class AccountController {
 		
 		model.addAttribute("accountList",accountList);
 		
-		return "ListAcconut";
+		return "ListAccount";
 	}
 	
 	

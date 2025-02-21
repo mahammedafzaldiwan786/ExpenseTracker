@@ -22,7 +22,8 @@
 				<th>Status</th>
 				<th>Amount</th>
 				<th>Transaction Date</th>
-				<th>Description</th>	
+				<th>Description</th>
+				<th>Action</th>	
 			</tr>
 	
 		<c:forEach items="${expenseList}" var="expense">

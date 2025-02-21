@@ -20,6 +20,7 @@
 				<th>Title</th>
 				<th>Amount</th>
 				<th>Description</th>
+				<th>Action</th>
 			</tr>
 	
 		<c:forEach items="${accountList}" var="account">

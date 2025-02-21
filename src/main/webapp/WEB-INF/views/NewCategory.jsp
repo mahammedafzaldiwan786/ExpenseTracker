@@ -17,8 +17,7 @@
 	
 	<form action="savecategory" method="post">  
 	
-			
-			Category ID: <input type="text" name="categoryId"> <br><br>
+			Add Category 
 			Title: <input type="text" name="title"> <br><br>
 	
 	

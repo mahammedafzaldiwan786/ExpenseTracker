@@ -18,6 +18,7 @@
 			<tr>
 				<th>Vendor ID</th>
 				<th>Title</th>
+				<th>Action</th>
 			</tr>
 	
 		<c:forEach items="${vendorList}" var="vendor">

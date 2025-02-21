@@ -15,10 +15,10 @@
 	
 	
 	
-	<form action="savevenvor" method="post">  
+	<form action="savevendor" method="post">  
 	
 			
-			Vendor ID: <input type="text" name="vendorId"> <br><br>
+			Add new Vendor <br>
 			Title: <input type="text" name="title"> <br><br>
 	
 	

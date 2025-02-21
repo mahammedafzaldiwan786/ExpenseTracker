@@ -19,6 +19,7 @@
 			<tr>
 				<th>Category ID</th>
 				<th>Title</th>
+				<th>Action</th>
 			</tr>
 	
 		<c:forEach items="${categoryList}" var="category">

@@ -23,6 +23,7 @@
 				<th>Amount</th>
 				<th>Transaction Date</th>
 				<th>Description</th>	
+				<th>Action</th>
 			</tr>
 	
 		<c:forEach items="${incomeList}" var="income">

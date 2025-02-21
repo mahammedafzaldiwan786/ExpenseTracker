@@ -18,7 +18,7 @@
 	<form action="savesubcategory" method="post">  
 	
 			
-			Subcategory ID: <input type="text" name="subcategoryId"> <br><br>
+			Add new Subcategory <br>
 			Title: <input type="text" name="title"> <br><br>
 	
 	
