@@ -15,5 +15,14 @@
 	
 	<a href="signup">Signup</a>
 	
+	
+		Welcome , ${user.firstName} 
+	
+		<br>
+	
+		<a href="logout">Logout</a> 
+	
+	
+	
 </body>
 </html>

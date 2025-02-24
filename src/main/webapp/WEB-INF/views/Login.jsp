@@ -56,6 +56,8 @@
               </label>
             </div>
           </div>
+            <span class="text-danger">${error}</span>
+         
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Login</button>

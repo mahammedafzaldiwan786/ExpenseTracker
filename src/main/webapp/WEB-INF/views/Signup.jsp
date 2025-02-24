@@ -25,7 +25,7 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Expense</b>Tracker</a>
+      <a href="login" class="h1"><b>Expense</b>Tracker</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>
@@ -95,7 +95,6 @@
           </div>
         </div>
         
-
         
    		 <div class="input-group mb-3">
           <input type="date" class="form-control" placeholder="Date" name="dateOfBirth" >
@@ -142,9 +141,9 @@
 <!-- /.register-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js?v=3.2.0"></script>
 </body>
