@@ -7,10 +7,11 @@
 <title>AdminDashboard</title>
 </head>
 <body>
-<h2>AdminDashboard</h2>
-Welcome , ${user.firstName}
-<br>
-<a href="logout">Logout</a> 
-
+		<h2>AdminDashboard</h2>
+		Welcome , ${user.firstName}
+		<br>
+		<a href="logout">Logout</a> 
+		<br>
+ 		<a href="newstate">Add State</a>
 </body>
 </html>

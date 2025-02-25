@@ -10,18 +10,23 @@
 <title>New City</title>
 </head>
 <body>
-	
+
 	<h2>New City</h2>
-	
 	<form action="savecity" method="post">
-	
-		New City : <input type="text" name="cityName">
-		
-		<br><br>
-		
-		<input type="submit" value="Save City">
-	
-	
+
+		CityName : <input type="text" name="cityName" /><Br>
+		<br> State: <select name="stateId">
+			<option>Select State</option>
+			
+			<c:forEach items="${allState}" var="s">
+
+					<option value="${s.stateId}">${s.stateName }</option>
+			
+			</c:forEach>
+
+		</select> <br>
+		<br> <input type="submit" value="Save City" />
+
 	</form>
 	
 </body>
