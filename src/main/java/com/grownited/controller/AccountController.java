@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AccountController {
@@ -21,13 +24,16 @@ public class AccountController {
 	@GetMapping("newaccount")
 	public String newaccount() {
 		
-		
 		return "NewAccount";
 	}
 	
 	
 	@PostMapping("saveaccount")
-	public String saveaccount(AccountEntity accountEntity){
+	public String saveaccount(HttpSession session,AccountEntity accountEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		accountEntity.setUserId(userId);
 		
 		accountRepository.save(accountEntity);
 		

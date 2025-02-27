@@ -14,7 +14,7 @@ import com.grownited.repository.StateRepository;
 public class StateController {
 	
 	@Autowired
-	StateRepository repoState ;
+	StateRepository stateRepository ;
 	
 	
 	
@@ -26,11 +26,11 @@ public class StateController {
 	}
 	
 	@PostMapping("saveState")
-	public String saveState(StateEntity state) {
+	public String saveState(StateEntity stateEntity) {
 		
-		System.out.println(state.getStateName());
+		System.out.println(stateEntity.getStateName());
 		
-		repoState.save(state);
+		stateRepository.save(stateEntity);
 		
 		return "NewState";
 	}

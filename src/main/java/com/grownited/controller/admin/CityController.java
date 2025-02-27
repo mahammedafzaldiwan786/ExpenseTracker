@@ -24,8 +24,6 @@ public class CityController {
 	StateRepository stateRepository;
 	
 	
-	
-	
 	@GetMapping("newcity")
 	public String newcity(Model model) {
 		
