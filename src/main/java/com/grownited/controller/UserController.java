@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,8 +38,11 @@ public class UserController {
 		System.out.println(userEntity.getDateOfBirth());
 		System.out.println(userEntity.getContactNum());
 		
+		
+		
 		userEntity.setRole("USER");
 		userEntity.setActive(true);
+		userEntity.setCreatedAt(LocalDate.now().toString());
 		
 		String encPassword = encoder.encode(userEntity.getPassword());
 		userEntity.setPassword(encPassword);

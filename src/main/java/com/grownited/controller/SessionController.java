@@ -62,9 +62,12 @@ public class SessionController {
 					return "Login";
 				}
 
+			}else {
+				model.addAttribute("error","Invalid Credentials");
+				
 			}
+			
 		}
-		model.addAttribute("error","Invalid Credentials");
 		return "Login";
 	}
 	
