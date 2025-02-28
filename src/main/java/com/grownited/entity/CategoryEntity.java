@@ -15,7 +15,7 @@ public class CategoryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categoryId;
 	private String title;
-	private Integer userId;
+	private Integer userId;//fk
 	
 	
 	

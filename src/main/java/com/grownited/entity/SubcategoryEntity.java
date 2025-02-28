@@ -15,8 +15,8 @@ public class SubcategoryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer subcategoryId;
 	private String title;
-	private Integer categoryId;
-	private Integer userId;
+	private Integer categoryId;//fk
+	private Integer userId;//fk
 	
 	
 	

@@ -9,8 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubcategoryEntity;
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.SubcategoryRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class SubcategoryController {
@@ -18,16 +23,28 @@ public class SubcategoryController {
 	@Autowired
 	SubcategoryRepository subcategoryRepository;
 	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
 	@GetMapping("newsubcategory")
-	public String newsubcategory() {
+	public String newsubcategory(Model model) {
 		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
 		
 		return "NewSubcategory";
 	}
 	
 	
 	@PostMapping("savesubcategory")
-	public String savesubcategory(SubcategoryEntity subcategoryEntity){
+	public String savesubcategory(HttpSession session,SubcategoryEntity subcategoryEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		subcategoryEntity.setUserId(userId);
+		
+		
 		
 		subcategoryRepository.save(subcategoryEntity);
 		

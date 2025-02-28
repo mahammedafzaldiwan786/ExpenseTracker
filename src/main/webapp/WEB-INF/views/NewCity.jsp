@@ -15,7 +15,8 @@
 	<form action="savecity" method="post">
 
 		CityName : <input type="text" name="cityName" /><Br>
-		<br> State: <select name="stateId">
+		<br> 
+		State: <select name="stateId">
 			<option>Select State</option>
 			
 			<c:forEach items="${allState}" var="s">

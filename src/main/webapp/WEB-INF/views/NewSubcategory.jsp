@@ -20,6 +20,17 @@
 			
 			Add new Subcategory <br>
 			Title: <input type="text" name="title"> <br><br>
+			
+			Category: <select name="categoryId">
+			<option>Select Category</option>
+			
+			<c:forEach items="${categoryList}" var="category">
+
+					<option value="${category.categoryId}">${category.title }</option>
+			
+			</c:forEach>
+
+			</select> <br>
 	
 	
 			<input type="submit" value="Save Subcategory">
