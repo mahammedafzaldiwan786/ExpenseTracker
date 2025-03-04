@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="home">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -30,7 +30,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-badge"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -49,7 +49,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-grid"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -68,7 +68,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Subcategory</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-ui-checks-grid"></i><span>Subcategory</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -87,7 +87,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Expense</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-cash-coin"></i><span>Expense</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -110,7 +110,7 @@
 
 		 <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#income-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Income</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-wallet-fill"></i><span>Income</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="income-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -129,7 +129,7 @@
       
        <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Vendor</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-people"></i><span>Vendor</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -150,7 +150,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-person-vcard"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -170,21 +170,21 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
+        <a class="nav-link collapsed" href="signup">
+          <i class="bi bi-person-add"></i>
           <span>Register</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="login">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
+        <a class="nav-link collapsed" href="errorpage">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
         </a>

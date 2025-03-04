@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Expense Tracker | List Subcategory</title>
+<title>Expense Tracker | List City</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -25,11 +25,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List Subcategory</h1>
+			<h1>List City</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">List Subcategory</li>
+					<li class="breadcrumb-item active">List City</li>
 				</ol>
 			</nav>
 		</div>
@@ -48,26 +48,24 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Subcategories<span>/all</span>
+										Cities<span>/all</span>
 									</h5>
 
 
 									<table class="table datatable datatable-table table-hover" id="myTable">
-										<thead>
+										<thead>	
 											<tr>
-												<th>Title</th>
-												<th>Action</th>
+												<th>City Name</th>
+												<th>State Name</th>
 											</tr>
 										</thead>
 
 										<tbody>
 											
-		
-											<c:forEach items="${subcategoryList}" var="subcategory">
-			
+											<c:forEach items="${allCity}" var="city">
 												<tr>
-													<td>${subcategory.title }</td>
-													<td><a href="viewsubcategory?subcategoryId=${subcategory.subcategoryId}">View</a> | Edit | <a href="deletesubcategory?categoryId=${subcategory.categoryId}">Delete</a> </td>
+													<td>${city.cityName}</td>
+													<td>${city.stateName}</td>
 												</tr>
 											</c:forEach>
 										</tbody>

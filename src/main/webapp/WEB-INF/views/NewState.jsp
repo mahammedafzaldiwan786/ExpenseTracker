@@ -14,7 +14,7 @@
 	
 	<h2>New State</h2>
 	
-	<form action="saveState" method="post">
+	<form action="savestate" method="post">
 	
 		New State :  <input type="text" name="stateName">
 		

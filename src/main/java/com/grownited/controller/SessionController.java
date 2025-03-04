@@ -105,7 +105,30 @@ public class SessionController {
 		return "Login";
 	}
 	
+	@GetMapping("/errorpage")
+	public String errorpage() {
+		
+		return "ErrorPage";
+	}
 	
+	//for testing 
 	
+	@GetMapping("/adminheader")
+	public String adminheader() {
+		
+		return "AdminHeader";
+	}
+	
+	@GetMapping("/adminfooter")
+	public String adminfooter() {
+		
+		return "AdminFooter";
+	}
+	
+	@GetMapping("/adminsidebar")
+	public String adminsidebar() {
+		
+		return "AdminSidebar";
+	}
 	
 }

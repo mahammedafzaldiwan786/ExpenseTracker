@@ -23,7 +23,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -57,7 +57,7 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Sales <span>| Today</span>
+										Expenses <span>| Today</span>
 									</h5>
 
 									<div class="d-flex align-items-center">
@@ -98,7 +98,7 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Revenue <span>| This Month</span>
+										Expenses <span>| This Month</span>
 									</h5>
 
 									<div class="d-flex align-items-center">
@@ -140,7 +140,7 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Customers <span>| This Year</span>
+										Expenses <span>| This Year</span>
 									</h5>
 
 									<div class="d-flex align-items-center">
@@ -186,12 +186,20 @@
 									</h5>
 
 					<br><br>
-						<h2>AdminDashboard</h2>
+						<h2>Admin</h2>
 						Welcome , ${user.firstName}
 						<br>
-						<a href="logout">Logout</a> 
+						<a href="newuser">Add New User</a> 
+						<br>
+						<a href="listuser">List All User</a> 
 						<br>
  						<a href="newstate">Add State</a>
+ 						<br>
+ 						<a href="liststate">List State</a>
+ 						<br>	
+ 						<a href="newcity">Add City</a>
+ 						<br>	
+ 						<a href="listcity">List City</a>
 					
 					<br><br>
 					
