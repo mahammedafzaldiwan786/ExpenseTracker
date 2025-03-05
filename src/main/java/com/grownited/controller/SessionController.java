@@ -67,6 +67,9 @@ public class SessionController {
 				
 			}
 			
+		}else { 
+			
+			model.addAttribute("error","Email not exist!!!");
 		}
 		return "Login";
 	}

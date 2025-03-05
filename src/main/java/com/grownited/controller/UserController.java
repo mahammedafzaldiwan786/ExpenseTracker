@@ -52,7 +52,7 @@ public class UserController {
 		// send mail
 		mailService.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
 		
-		return "redirect:/listuser";
+		return "redirect:/login";
 	}
 	
 	

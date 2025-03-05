@@ -21,7 +21,7 @@
           </li>
           <li>
             <a href="listuser">
-              <i class="bi bi-circle"></i><span>List User</span>
+              <i class="bi bi-circle"></i><span>List Users</span>
             </a>
           </li>
 
@@ -40,7 +40,7 @@
           </li>
           <li>
             <a href="listaccount">
-              <i class="bi bi-circle"></i><span>List Account</span>
+              <i class="bi bi-circle"></i><span>List Accounts</span>
             </a>
           </li>
          
@@ -59,7 +59,7 @@
           </li>
           <li>
             <a href="listcategory">
-              <i class="bi bi-circle"></i><span>List Category</span>
+              <i class="bi bi-circle"></i><span>List Categories</span>
             </a>
           </li>
         </ul>
@@ -78,7 +78,7 @@
           </li>
           <li>
             <a href="listsubcategory">
-              <i class="bi bi-circle"></i><span>List Subcategory</span>
+              <i class="bi bi-circle"></i><span>List Subcategories</span>
             </a>
           </li>
           
@@ -97,7 +97,7 @@
           </li>
           <li>
             <a href="listexpense">
-              <i class="bi bi-circle"></i><span>List ExpenseS</span>
+              <i class="bi bi-circle"></i><span>List Expenses</span>
             </a>
           </li>
        
@@ -110,7 +110,7 @@
 
 		 <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#income-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-wallet-fill"></i><span>Income</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-cash-stack"></i><span>Income</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="income-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -139,7 +139,7 @@
           </li>
           <li>
             <a href="listvendor">
-              <i class="bi bi-circle"></i><span>List Vendor</span>
+              <i class="bi bi-circle"></i><span>List Vendors</span>
             </a>
           </li>
        

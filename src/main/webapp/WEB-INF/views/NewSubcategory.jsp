@@ -1,42 +1,89 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    
+	pageEncoding="UTF-8"%>
+	
+	
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+ 
+ 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>New Subcategory</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Expense Tracker | New Subcategory</title>
+
+<jsp:include page="AdminCss.jsp"></jsp:include>
+
+
 </head>
 <body>
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
-	
-	<h2>New Subcategory</h2>
-	
-	
-	<form action="savesubcategory" method="post">  
-	
-			
-			Add new Subcategory <br>
-			Title: <input type="text" name="title"> <br><br>
-			
-			Category: <select name="categoryId">
-			<option>Select Category</option>
-			
-			<c:forEach items="${categoryList}" var="category">
+	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-					<option value="${category.categoryId}">${category.title }</option>
-			
-			</c:forEach>
+	<main id="main" class="main">
 
-			</select> <br>
-	
-	
-			<input type="submit" value="Save Subcategory">
-	
-	</form>
-	
-	
+		<div class="pagetitle">
+			<h1>Dashboard</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
+					<li class="breadcrumb-item active">Dashboard</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+
+			<div class="card-body">
+              <h5 class="card-title">Add New Subcategory</h5>
+
+              <!-- General Form Elements -->
+              <form>
+              
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label" >Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control"  name="title">
+                  </div>
+                </div>
+                
+                
+                
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Category</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="categoryId">
+                      <option selected="">select category</option>
+                     	 <c:forEach items="${categoryList}" var="category">
+
+								<option value="${category.categoryId}">${category.title }</option>
+			
+						</c:forEach>
+
+                    </select>
+                  </div>
+                </div>
+
+              
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Save Subcategory</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+
+	</main>
+	<!-- main content end  -->
+
+
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+
+	<jsp:include page="AdminJs.jsp"></jsp:include>
 </body>
 </html>

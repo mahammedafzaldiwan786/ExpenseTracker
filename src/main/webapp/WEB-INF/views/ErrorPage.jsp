@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Dashboard</title>
+<title>User Dashboard | Error</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 

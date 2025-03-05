@@ -28,7 +28,7 @@
 			<h1>List User</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">List User</li>
 				</ol>
 			</nav>
@@ -70,20 +70,20 @@
 
 										<tbody>
 											
-		<c:forEach items="${userList}" var="user">
-			
-			<tr>
-				<td>${user.firstName }</td>
-				<td>${user.lastName }</td>
-				<td>${user.email }</td>
-				<td>${user.contactNum }</td>
-				<td>${user.city }</td>
-				<td>${user.state }</td>							
-				<td>${user.dateOfBirth }</td>
-				<td>${user.gender }</td>
-				<td><a href="viewuser?userId=${user.userId}">View</a> | Edit | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
-			</tr>
-		</c:forEach>
+	   										<c:forEach items="${userList}" var="user">
+	   											
+	   											<tr>
+	   												<td>${user.firstName }</td>
+	   												<td>${user.lastName }</td>
+	   												<td>${user.email }</td>
+	   												<td>${user.contactNum }</td>
+	   												<td>${user.city }</td>
+	   												<td>${user.state }</td>							
+	   												<td>${user.dateOfBirth }</td>
+	   												<td>${user.gender }</td>
+	   												<td><a href="viewuser?userId=${user.userId}">View</a> | Edit | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
+	   											</tr>
+	   										</c:forEach>
 										</tbody>
 
 									</table>
