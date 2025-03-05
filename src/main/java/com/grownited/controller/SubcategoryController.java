@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.dto.CityDto;
+import com.grownited.dto.SubcategoryDto;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
@@ -55,7 +57,7 @@ public class SubcategoryController {
 	@GetMapping("listsubcategory")
 	public String listsubcategory(Model model) {
 		
-		List<SubcategoryEntity> subcategoryList =  subcategoryRepository.findAll();
+		List<SubcategoryDto> subcategoryList = subcategoryRepository.getAll();
 		
 		model.addAttribute("subcategoryList",subcategoryList);
 		
@@ -68,18 +70,18 @@ public class SubcategoryController {
 		
 	System.out.println("Subcategory ID : "+subcategoryId);
 		
-		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryId);
-		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			SubcategoryEntity subcategory = op.get();
-			// send data to jsp ->
-			model.addAttribute("subcategory", subcategory);
-
-		}
-		
+//		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryId);
+//		
+//		if (op.isEmpty()) {
+//			// not found
+//		} else {
+//			// data found
+//			SubcategoryEntity subcategory = op.get();
+//			// send data to jsp ->
+//			model.addAttribute("subcategory", subcategory);
+//
+//		}
+//		
 		return "ViewSubcategory";
 	}
 	

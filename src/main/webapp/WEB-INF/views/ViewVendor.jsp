@@ -38,7 +38,7 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Title: ${vendor.title} </li>
+                <li class="list-group-item">Vendor Name: ${vendor.vendorName} </li>
            
               
               </ul><!-- End Default List group -->

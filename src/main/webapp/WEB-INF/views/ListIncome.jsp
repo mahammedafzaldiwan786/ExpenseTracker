@@ -55,7 +55,7 @@
 									<table class="table datatable datatable-table table-hover" id="myTable">
 										<thead>
 											<tr>
-												<th>Title</th>
+												<th>Income Name</th>
 												<th>Status</th>
 												<th>Amount</th>
 												<th>Transaction Date</th>
@@ -69,7 +69,7 @@
 											<c:forEach items="${incomeList}" var="income">
 			
 												<tr>
-													<td>${income.title }</td>
+													<td>${income.incomeName }</td>
 													<td>${income.status }</td>
 													<td>${income.amount }</td>
 													<td>${income.transactionDate }</td>

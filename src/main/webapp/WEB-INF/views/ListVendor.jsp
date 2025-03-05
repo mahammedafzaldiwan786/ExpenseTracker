@@ -55,7 +55,7 @@
 									<table class="table datatable datatable-table table-hover" id="myTable">
 										<thead>
 											<tr>
-												<th>Title</th>
+												<th>Vendor Name</th>
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -65,7 +65,7 @@
 											<c:forEach items="${vendorList}" var="vendor">
 			
 												<tr>
-													<td>${vendor.title }</td>
+													<td>${vendor.vendorName }</td>
 													<td><a href="viewvendor?vendorId=${vendor.vendorId}">View</a> | Edit | <a href="deletevendor?vendorId=${vendor.vendorId}">Delete</a> </td>
 												</tr>
 											</c:forEach>

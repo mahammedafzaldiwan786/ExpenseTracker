@@ -38,7 +38,7 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">	Title: ${category.title}</li>
+                <li class="list-group-item">	Category Name: ${category.categoryName}</li>
            
               
               </ul><!-- End Default List group -->

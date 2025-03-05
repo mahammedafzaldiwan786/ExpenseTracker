@@ -9,4 +9,6 @@ import com.grownited.entity.AccountEntity;
 @Repository
 public interface AccountRepository extends JpaRepository<AccountEntity, Integer>{
 
+
+	
 }

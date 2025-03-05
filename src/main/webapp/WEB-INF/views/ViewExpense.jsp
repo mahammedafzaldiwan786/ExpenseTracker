@@ -38,7 +38,7 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Title : ${expense.title }</li>
+                <li class="list-group-item">Expense Name : ${expense.expenseName }</li>
                 <li class="list-group-item">Amount : ${expense.amount }</li>
                 <li class="list-group-item">Description : ${expense.description }</li>
                 <li class="list-group-item">Transaction Date : ${expense.transactionDate }</li>

@@ -1,25 +1,28 @@
-package com.grownited.entity;
+package com.grownited.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "subcategories")
-public class SubcategoryEntity {
-		
+public class SubcategoryDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer subcategoryId;
 	private String subcategoryName;
 	private Integer categoryId;//fk
 	private Integer userId;//fk
+	private String categoryName;
+	
+
 	
 	
 	
+
+	
+	public SubcategoryDto(Integer subcategoryId, Integer categoryId, Integer userId,String subcategoryName,
+			String categoryName) {
+		super();
+		this.subcategoryId = subcategoryId;
+		this.subcategoryName = subcategoryName;
+		this.categoryId = categoryId;
+		this.userId = userId;
+		this.categoryName = categoryName;
+	}
 	
 	
 	public Integer getSubcategoryId() {
@@ -40,6 +43,12 @@ public class SubcategoryEntity {
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 	public String getSubcategoryName() {
 		return subcategoryName;

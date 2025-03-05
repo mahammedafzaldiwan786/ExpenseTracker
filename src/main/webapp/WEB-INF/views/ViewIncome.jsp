@@ -38,7 +38,7 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Title : ${income.title }</li>
+                <li class="list-group-item">Income Name : ${income.incomeName }</li>
                 <li class="list-group-item">Amount : ${income.amount }</li>
                 <li class="list-group-item">Description : ${income.description }</li>
                 <li class="list-group-item">Transaction Date : ${income.transactionDate }</li>

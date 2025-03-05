@@ -36,23 +36,23 @@
               <!-- General Form Elements -->
               <form action="saveaccount" method="post">
 				   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Title</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" name="accountName">Account Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control"  name="accountName">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="amount">Amount</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="amount">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="description">Description</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="description">
                   </div>
                 </div>
                 <div class="row mb-3">

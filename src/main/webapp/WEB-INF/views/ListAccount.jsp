@@ -56,7 +56,7 @@
 										<thead>
 											<tr>
 
-												<th>Title</th>
+												<th>Account Name</th>
 												<th>Amount</th>
 												<th>Description</th>
 												<th>Action</th>
@@ -67,12 +67,12 @@
 											
 												<c:forEach items="${accountList}" var="account">
 			
-													<tr>
-														<td>${account.title }</td>
-														<td>${account.amount }</td>
-														<td>${account.description }</td>
-														<td><a href="viewaccount?accountId=${account.accountId}">View</a> | Edit | <a href="deleteaccount?accountId=${account.accountId}">Delete</a> </td>
-													</tr>
+														<tr>
+															<td>${account.accountName }</td>
+															<td>${account.amount }</td>
+															<td>${account.description }</td>
+															<td><a href="viewaccount?accountId=${account.accountId}">View</a> | Edit | <a href="deleteaccount?accountId=${account.accountId}">Delete</a> </td>
+														</tr>
 												</c:forEach>
 										</tbody>
 

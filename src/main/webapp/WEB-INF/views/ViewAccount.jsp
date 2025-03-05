@@ -38,7 +38,7 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Title: ${account.title}</li>
+                <li class="list-group-item">Account Name: ${account.accountName}</li>
                 <li class="list-group-item">Amount:  ${account.amount}</li>
                 <li class="list-group-item">Description :  ${account.description} </li>
               

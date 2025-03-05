@@ -34,6 +34,9 @@ public class AccountController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		accountEntity.setUserId(userId);
+
+		
+		System.out.println(userId);
 		
 		accountRepository.save(accountEntity);
 		
@@ -45,7 +48,7 @@ public class AccountController {
 	public String listaccount(Model model) {
 		
 		List<AccountEntity> accountList =  accountRepository.findAll();
-		
+
 		model.addAttribute("accountList",accountList);
 		
 		return "ListAccount";

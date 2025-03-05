@@ -36,9 +36,9 @@
               <!-- General Form Elements -->
               <form action="savevendor" method="post">
 				   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Title</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Vendor Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="vendorName">
                   </div>
                 </div>
                 

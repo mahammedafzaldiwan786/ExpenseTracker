@@ -64,7 +64,7 @@
                     <p class="text-center small">Enter OTP and reset password</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="authenticate" method="post">
+                  <form class="row g-3 needs-validation" novalidate action="updatepassword" method="post">
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>

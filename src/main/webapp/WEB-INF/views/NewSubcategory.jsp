@@ -39,12 +39,12 @@
               <h5 class="card-title">Add New Subcategory</h5>
 
               <!-- General Form Elements -->
-              <form>
+              <form action="savesubcategory" method="post">
               
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" >Title</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" >Subcategory Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control"  name="title">
+                    <input type="text" class="form-control"  name="subcategoryName">
                   </div>
                 </div>
                 
@@ -57,7 +57,7 @@
                       <option selected="">select category</option>
                      	 <c:forEach items="${categoryList}" var="category">
 
-								<option value="${category.categoryId}">${category.title }</option>
+								<option value="${category.categoryId}">${category.categoryName }</option>
 			
 						</c:forEach>
 

@@ -15,7 +15,7 @@ public class AccountEntity {
 	private Integer accountId;
 	private String description;
 	private Integer userId;
-	private String title;
+	private String accountName;
 	private Double amount;
 	
 	
@@ -38,17 +38,18 @@ public class AccountEntity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 	public Double getAmount() {
 		return amount;
 	}
 	public void setAmount(Double amount) {
 		this.amount = amount;
+	}
+	public String getAccountName() {
+		return accountName;
+	}
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	
 	

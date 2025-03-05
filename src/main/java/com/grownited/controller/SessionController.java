@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
+import com.grownited.service.MailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -25,7 +26,8 @@ public class SessionController {
 	@Autowired
 	PasswordEncoder encoder;
 	
-	
+	@Autowired
+	MailService mailService;
 	
 	@GetMapping(value = {"signup","newuser","/"})
 	public String signup() {
@@ -92,20 +94,53 @@ public class SessionController {
 		return "ForgetPassword";
 	}
 	
-	@PostMapping("sendOtp")
-	public String sendOtp(UserEntity userEntity){
-		
-		System.out.println(userEntity.getEmail());
-		System.out.println(userEntity.getPassword());
-		
-		return "ChagePassword";
+		@PostMapping("sendOtp")
+		public String sendOtp(String email, Model model) {
+			// email valid
+			Optional<UserEntity> op = userRepository.findByEmail(email);
+			if (op.isEmpty()) {
+				// email invalid
+				model.addAttribute("error", "Email not found");
+				return "ForgetPassword";
+			} else {
+				// email valid
+				// send mail otp
+				// opt generate
+				// send mail otp
+				String otp = "";
+				otp = (int) (Math.random() * 1000000) + "";// 0.25875621458541
+
+				UserEntity user = op.get();
+				user.setOtp(otp);
+				userRepository.save(user);// update otp for user
+				mailService.sendOtpForForgetPassword(email, user.getFirstName(), otp);
+				return "ChangePassword";
+			}
 	}
 	
 	
-	@PostMapping("updatepassword")
-	public String updatepassword() {
+		@PostMapping("updatepassword")
+		public String updatePassword(String email, String password, String otp, Model model) {
+			Optional<UserEntity> op = userRepository.findByEmail(email);
+			if (op.isEmpty()) {
+				model.addAttribute("error", "Invalid Data");
+				return "ChangePassword";
+			} else {
+				UserEntity user = op.get();
+				if (user.getOtp().equals(otp)) {
+					String encPwd = encoder.encode(password);
+					user.setPassword(encPwd);
+					user.setOtp("");
+					userRepository.save(user);// update
+				} else {
+
+					model.addAttribute("error", "Invalid Data");
+					return "ChangePassword";
+				}
+			}
+			model.addAttribute("msg","Password updated");
+			return "Login";
 		
-		return "Login";
 	}
 	
 	@GetMapping("/errorpage")

@@ -36,23 +36,23 @@
               <!-- General Form Elements -->
               <form action="saveexpense" method="post">
                	   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Title</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Expense Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control"  name="expenseName">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="amount">Amount</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control"  name="amount">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="description">Description</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="description">
                   </div>
                 </div>
              
@@ -68,7 +68,7 @@
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="status">Status</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="status">
                   </div>
                 </div>
                 

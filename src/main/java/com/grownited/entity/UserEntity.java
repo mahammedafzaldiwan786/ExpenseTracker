@@ -27,7 +27,7 @@ public class UserEntity {
 	private String role;
 	private Boolean active;
 	private String createdAt;
-	private Integer otp;
+	private String otp;
 	
 	
 	
@@ -103,17 +103,18 @@ public class UserEntity {
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Integer getOtp() {
-		return otp;
-	}
-	public void setOtp(Integer otp) {
-		this.otp = otp;
-	}
+	
 	public String getState() {
 		return state;
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 	
 	

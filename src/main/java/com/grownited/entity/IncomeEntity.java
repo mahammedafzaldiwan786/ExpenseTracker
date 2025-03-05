@@ -14,7 +14,7 @@ public class IncomeEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer incomeId;
-	private String title;
+	private String incomeName;
 	private Integer accountId;
 	private String status;
 	private Double amount;
@@ -32,12 +32,7 @@ public class IncomeEntity {
 	public void setIncomeId(Integer incomeId) {
 		this.incomeId = incomeId;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 	public Integer getAccountId() {
 		return accountId;
 	}
@@ -74,6 +69,12 @@ public class IncomeEntity {
 	}
 	public void setTransactionDate(String transactionDate) {
 		this.transactionDate = transactionDate;
+	}
+	public String getIncomeName() {
+		return incomeName;
+	}
+	public void setIncomeName(String incomeName) {
+		this.incomeName = incomeName;
 	}
 	
 	

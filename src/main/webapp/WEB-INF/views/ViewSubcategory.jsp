@@ -38,8 +38,8 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Title: ${subcategory.title} </li>
-                <li class="list-group-item">Category: ${subcategory.title} </li>
+                <li class="list-group-item">Subcategory Name: ${subcategory.subcategoryName} </li>
+                <li class="list-group-item">Category: ${subcategory.categoryName} </li>
                 
            
               

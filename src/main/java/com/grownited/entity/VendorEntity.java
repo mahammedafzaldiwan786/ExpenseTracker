@@ -13,7 +13,7 @@ public class VendorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer vendorId;
-	private String title;
+	private String vendorName;
 	private Integer userId;
 	
 	
@@ -24,11 +24,12 @@ public class VendorEntity {
 	public void setVendorId(Integer vendorId) {
 		this.vendorId = vendorId;
 	}
-	public String getTitle() {
-		return title;
+	
+	public String getVendorName() {
+		return vendorName;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
 	}
 	public Integer getUserId() {
 		return userId;

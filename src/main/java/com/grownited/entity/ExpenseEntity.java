@@ -14,7 +14,7 @@ public class ExpenseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer expenseId;
-	private String title;
+	private String expenseName;
 	private Integer categoryId;
 	private Integer subcategoryId;
 	private Integer vendorId;
@@ -36,12 +36,7 @@ public class ExpenseEntity {
 	public void setExpenseId(Integer expenseId) {
 		this.expenseId = expenseId;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -96,6 +91,12 @@ public class ExpenseEntity {
 	}
 	public void setTransactionDate(String transactionDate) {
 		this.transactionDate = transactionDate;
+	}
+	public String getExpenseName() {
+		return expenseName;
+	}
+	public void setExpenseName(String expenseName) {
+		this.expenseName = expenseName;
 	}
 	
 	

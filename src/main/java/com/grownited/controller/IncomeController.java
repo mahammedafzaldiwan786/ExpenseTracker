@@ -9,8 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.AccountEntity;
 import com.grownited.entity.IncomeEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.IncomeRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class IncomeController {
@@ -27,7 +31,15 @@ public class IncomeController {
 	
 	
 	@PostMapping("saveincome")
-	public String saveincome(IncomeEntity incomeEntity){
+	public String saveincome(HttpSession session,IncomeEntity incomeEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		incomeEntity.setUserId(userId);
+		
+//		AccountEntity account = (AccountEntity) session.getAttribute("account");
+//		Integer accountId = account.getAccountId();
+//		incomeEntity.setAccountId(accountId);
 		
 		incomeRepository.save(incomeEntity);
 		
