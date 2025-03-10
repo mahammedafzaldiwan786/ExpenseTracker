@@ -57,9 +57,9 @@ public class SubcategoryController {
 	@GetMapping("listsubcategory")
 	public String listsubcategory(Model model) {
 		
-		List<SubcategoryDto> subcategoryList = subcategoryRepository.getAll();
+		List<Object[]> subcategoryList = subcategoryRepository.getAll();
 		
-		model.addAttribute("subcategoryList",subcategoryList);
+		model.addAttribute("allsubcategoryt",subcategoryList);
 		
 		return "ListSubcategory";
 	}
@@ -70,18 +70,19 @@ public class SubcategoryController {
 		
 	System.out.println("Subcategory ID : "+subcategoryId);
 		
-//		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryId);
+//		Optional<Object[]> op = subcategoryRepository.findById(subcategoryId);
 //		
 //		if (op.isEmpty()) {
 //			// not found
 //		} else {
 //			// data found
-//			SubcategoryEntity subcategory = op.get();
+//			Object[] subcategory = op.get();
 //			// send data to jsp ->
 //			model.addAttribute("subcategory", subcategory);
 //
 //		}
 //		
+	
 		return "ViewSubcategory";
 	}
 	

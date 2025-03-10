@@ -64,8 +64,8 @@
 											
 											<c:forEach items="${allCity}" var="city">
 												<tr>
-													<td>${city.cityName}</td>
-													<td>${city.stateName}</td>
+													<td>${city[1]}</td>
+													<td>${city[3]}</td>
 												</tr>
 											</c:forEach>
 										</tbody>

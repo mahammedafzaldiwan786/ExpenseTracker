@@ -13,6 +13,6 @@ import com.grownited.entity.CityEntity;
 public interface CityRepository extends JpaRepository<CityEntity, Integer>{
 	
 	@Query(value = "select c.*,s.state_name from states s,cities c where s.state_id = c.state_id",nativeQuery = true)
-	List<CityDto> getAll();
+	List<Object> getAll();
 	
 }

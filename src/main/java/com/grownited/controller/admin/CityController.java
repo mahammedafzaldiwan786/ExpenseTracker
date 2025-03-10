@@ -46,7 +46,7 @@ public class CityController {
 	@GetMapping("listcity")
 	public String listCity(Model model) {
 		
-		List<CityDto> allCity = cityRepository.getAll();
+		List<Object> allCity = cityRepository.getAll();
 
 		model.addAttribute("allCity",allCity);
 		

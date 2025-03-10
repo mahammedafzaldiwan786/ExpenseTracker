@@ -78,7 +78,7 @@
 					
 					 <div class="col-12">
                       <label for="yourPassword" class="form-label">OTP</label>
-                      <input type="password" name="otp" class="form-control" id="yourPassword" required>
+                      <input type="text" name="otp" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter  OTP!</div>
                     </div>
 					

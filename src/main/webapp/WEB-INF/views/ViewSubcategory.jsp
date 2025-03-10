@@ -35,16 +35,16 @@
 			
 			<div class="card-body">
               <h5 class="card-title">View Subcategory</h5>
-
+				
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Subcategory Name: ${subcategory.subcategoryName} </li>
-                <li class="list-group-item">Category: ${subcategory.categoryName} </li>
+                <li class="list-group-item">Subcategory Name: ${subcategory[0]} </li>
+                <li class="list-group-item">Category: ${subcategory[1]} </li>
                 
            
               
               </ul><!-- End Default List group -->
-
+				
             </div>
 			
 			

@@ -13,11 +13,11 @@ import com.grownited.entity.SubcategoryEntity;
 public interface SubcategoryRepository extends JpaRepository<SubcategoryEntity, Integer>{
 		
 	@Query(value = "select s.*,c.category_name from subcategories s,categories c where s.category_id = c.category_id",nativeQuery = true)
-	List<SubcategoryDto> getAll();
+	List<Object[]> getAll();
 	
 	
 	
-//	@Query(value = "select c.category_name from subcategories s,categories c where s.category_id = c.category_id",nativeQuery = true)
-//	List<SubcategoryDto> findById();
+	@Query(value = "select c.category_name from subcategories s,categories c where s.category_id = c.category_id",nativeQuery = true)
+	List<SubcategoryDto> findById();
 	
 }
