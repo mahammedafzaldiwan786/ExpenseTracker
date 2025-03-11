@@ -1,7 +1,9 @@
 package com.grownited.controller;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -27,8 +32,14 @@ public class UserController {
 	@Autowired
 	PasswordEncoder encoder;
 	
+	@Autowired
+	Cloudinary cloudinary;
+	
+	
+	
+	
 	@PostMapping("saveuser")
-	public String saveuser(UserEntity userEntity) {
+	public String saveuser(UserEntity userEntity,MultipartFile profilePic) {
 		
 		System.out.println(userEntity.getFirstName());
 		System.out.println(userEntity.getLastName());
@@ -37,6 +48,18 @@ public class UserController {
 		System.out.println(userEntity.getGender());
 		System.out.println(userEntity.getDateOfBirth());
 		System.out.println(userEntity.getContactNum());
+		
+		System.out.println(profilePic.getOriginalFilename());
+		
+		try {
+			Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+			System.out.println(result);
+			System.out.println(result.get("url"));
+			userEntity.setProfilePicPath(result.get("url").toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		

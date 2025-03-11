@@ -24,6 +24,7 @@ public class ExpenseEntity {
 	private String transactionDate;
 	private String description;
 	private Integer userId;
+	private String billPicPath;
 	
 	
 	
@@ -97,6 +98,12 @@ public class ExpenseEntity {
 	}
 	public void setExpenseName(String expenseName) {
 		this.expenseName = expenseName;
+	}
+	public String getBillPicPath() {
+		return billPicPath;
+	}
+	public void setBillPicPath(String billPicPath) {
+		this.billPicPath = billPicPath;
 	}
 	
 	

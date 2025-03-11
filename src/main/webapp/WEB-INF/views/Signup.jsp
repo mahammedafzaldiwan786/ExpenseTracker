@@ -79,7 +79,7 @@
 									</div>
 
 									<form class="row g-3 needs-validation" novalidate
-										action="saveuser" method="post">
+										action="saveuser" method="post" enctype="multipart/form-data">
 										<div class="col-12">
 											<label for="yourName" class="form-label">First Name</label> <input
 												type="text" name="firstName" class="form-control"
@@ -151,8 +151,18 @@
 											<div class="invalid-feedback">Please, enter your state
 												!</div>
 										</div>
+										
+										
+										<div class="col-12">
+											<label for="yourName" class="form-label">Profile Picture</label> <input
+												type="file" name="profilePic" class="form-control"
+												id="yourName" required>
+											<div class="invalid-feedback">
+												Upload your profile picture!
+											</div>
+										</div>
 
-
+					
 										<div class="col-12">
 											<label for="yourName" class="form-label">Date of Birth</label> <input
 												type="date" name="dateOfBirth" class="form-control"

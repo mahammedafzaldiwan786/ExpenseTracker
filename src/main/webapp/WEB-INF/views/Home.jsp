@@ -189,6 +189,11 @@
 						<h2>User</h2>
 							
 							Welcome , ${user.firstName}
+							
+								<br>
+									<img src="${user.profilePicPath}"  height="200px" width="200px"/>
+
+								<br>
 						
 					
 					<br><br>

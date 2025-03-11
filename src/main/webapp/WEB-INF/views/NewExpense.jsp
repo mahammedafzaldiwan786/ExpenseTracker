@@ -34,7 +34,7 @@
               <h5 class="card-title">Add New Expense</h5>
 
               <!-- General Form Elements -->
-              <form action="saveexpense" method="post">
+              <form action="saveexpense" method="post" enctype="multipart/form-data">
                	   <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="title">Expense Name</label>
                   <div class="col-sm-10">
@@ -48,6 +48,15 @@
                     <input type="number" class="form-control"  name="amount">
                   </div>
                 </div>
+                
+                
+                 <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label" name="description">Picture of Bill</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" name="billPic">
+                  </div>
+                </div>
+                
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="description">Description</label>

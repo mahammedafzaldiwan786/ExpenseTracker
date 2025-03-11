@@ -43,6 +43,7 @@
                 <li class="list-group-item">Description : ${expense.description }</li>
                 <li class="list-group-item">Transaction Date : ${expense.transactionDate }</li>
                 <li class="list-group-item">Status : ${expense.status }</li>
+                <li class="list-group-item">Picture of Bill : <img src="${expense.billPicPath}"  height="200px" width="200px"/></li>
               </ul><!-- End Default List group -->
 
             </div>

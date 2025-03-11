@@ -58,6 +58,7 @@
 												<th>Expense Name</th>
 												<th>Status</th>
 												<th>Amount</th>
+												<th>Bill Pic</th>
 												<th>Transaction Date</th>
 												<th>Description</th>
 												<th>Action</th>	
@@ -72,6 +73,7 @@
 													<td>${expense.expenseName }</td>
 													<td>${expense.status }</td>
 													<td>${expense.amount }</td>
+													<td><img src="${expense.billPicPath}"  height="50px" width="50px"/></td>
 													<td>${expense.transactionDate }</td>
 													<td>${expense.description }</td>
 													<td><a href="viewexpense?expenseId=${expense.expenseId}">View</a> | Edit | <a href="deleteexpense?expenseId=${expense.expenseId}">Delete</a> </td>
