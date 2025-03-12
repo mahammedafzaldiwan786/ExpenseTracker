@@ -81,7 +81,7 @@
 	   												<td>${user.state }</td>							
 	   												<td>${user.dateOfBirth }</td>
 	   												<td>${user.gender }</td>
-	   												<td><a href="viewuser?userId=${user.userId}">View</a> | Edit | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
+	   												<td><a href="viewuser?userId=${user.userId}">View</a> | <a href="edituser?userId=${user.userId}">Edit</a> | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
 	   											</tr>
 	   										</c:forEach>
 										</tbody>

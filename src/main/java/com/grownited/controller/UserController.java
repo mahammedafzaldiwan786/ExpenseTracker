@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.grownited.entity.CategoryEntity;
+import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -108,6 +110,58 @@ public class UserController {
 		
 		return "ViewUser";
 	}
+	
+	
+	
+	
+
+	@GetMapping("edituser")
+	public String edituser(Integer userId,Model model) {
+		Optional<UserEntity> op = userRepository.findById(userId);
+		
+		
+		if (op.isEmpty()) {
+			return "redirect:/listuser";
+		} else {
+			
+			
+			model.addAttribute("user",op.get());
+			return "EditUser";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateuser")
+	public String updateuser(UserEntity userEntity) {
+		
+		System.out.println("userEntity.getUserId() ====>"+userEntity.getUserId());//id? db? 
+
+		Optional<UserEntity> op = userRepository.findById(userEntity.getUserId());
+		
+		if(op.isPresent())
+		{
+			UserEntity dbUser = op.get(); 
+			dbUser.setFirstName(userEntity.getFirstName());
+			dbUser.setLastName(userEntity.getLastName());
+			dbUser.setGender(userEntity.getGender());
+			dbUser.setEmail(userEntity.getEmail());
+			dbUser.setContactNum(userEntity.getContactNum());
+			dbUser.setCity(userEntity.getCity());
+			dbUser.setState(userEntity.getState());
+			dbUser.setDateOfBirth(userEntity.getDateOfBirth());
+			
+			
+			userRepository.save(dbUser);
+		}
+		return "redirect:/listuser";
+	}
+	
+	
+	
+	
 	
 	
 	@GetMapping("deleteuser")

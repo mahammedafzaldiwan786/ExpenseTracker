@@ -70,20 +70,55 @@ public class SubcategoryController {
 		
 	System.out.println("Subcategory ID : "+subcategoryId);
 		
-//		Optional<Object[]> op = subcategoryRepository.findById(subcategoryId);
-//		
-//		if (op.isEmpty()) {
-//			// not found
-//		} else {
-//			// data found
-//			Object[] subcategory = op.get();
-//			// send data to jsp ->
-//			model.addAttribute("subcategory", subcategory);
-//
-//		}
-//		
+		List<Object[]> subcategory = subcategoryRepository.getBysubcategoryId(subcategoryId);
+		
+		
+		model.addAttribute("subcategory", subcategory);
+
 	
 		return "ViewSubcategory";
+	}
+	
+	
+	
+	@GetMapping("editsubcategory")
+	public String editsubcategory(Integer subcategoryId,Model model) {
+		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryId);
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/listsubcategory";
+		} else {
+			
+			
+			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("subcategory",op.get());
+			return "EditSubcategory";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatesubcategory")
+	public String updatesubcategory(SubcategoryEntity subcategoryEntity) {
+		
+		System.out.println("getSubcategoryId ====>"+subcategoryEntity.getSubcategoryId());//id? db? 
+
+		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryEntity.getSubcategoryId());
+		
+		if(op.isPresent())
+		{
+			SubcategoryEntity dbSubcategory = op.get(); 
+			dbSubcategory.setSubcategoryName(subcategoryEntity.getSubcategoryName());
+			dbSubcategory.setCategoryId(subcategoryEntity.getCategoryId());
+			
+			//
+			subcategoryRepository.save(dbSubcategory);
+		}
+		return "redirect:/listsubcategory";
 	}
 	
 	
