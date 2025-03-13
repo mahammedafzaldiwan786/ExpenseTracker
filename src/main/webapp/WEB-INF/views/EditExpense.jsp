@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Expense Tracker | New Income</title>
+<title>Expense Tracker | Edit Expense</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -34,72 +31,64 @@
 		<!-- End Page Title -->
 
 			<div class="card-body">
-              <h5 class="card-title">Add New Income</h5>
+              <h5 class="card-title"> Edit Expense</h5>
 
               <!-- General Form Elements -->
-              <form action="saveincome" method="post">
+              <form action="updateexpense" method="post" enctype="multipart/form-data">
                	   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Income Name</label>
+                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Expense Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="incomeName">
-                  </div>
-                </div>
-                
-                
-                  
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Account</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="accountId">
-                      <option selected="">select account</option>
-                     	 <c:forEach items="${accountList}" var="account">
-
-								<option value="${account.accountId}">${account.accountName }</option>
-			
-						</c:forEach>
-
-                    </select>
+                    <input type="text" class="form-control"  name="expenseName" value="${expense.expenseName}">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="amount">Amount</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="amount">
-                  </div>
-                </div>
-                
-              
-               
-               
-                <div class="row mb-3">
-                  <label for="inputDate" class="col-sm-2 col-form-label">Transaction Date</label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" name="transactionDate">
+                    <input type="number" class="form-control"  name="amount" value="${expense.amount}">
                   </div>
                 </div>
                 
                 
                  <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label" name="billPic">Picture of Bill</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" name="billPic">
+                  </div>
+                </div>
+                
+                
+                <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="description">Description</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description">
+                    <input type="text" class="form-control" name="description" value="${expense.description}">
+                  </div>
+                </div>
+             
+               
+               
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-2 col-form-label">Transaction Date</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" name="transactionDate" value="${expense.transactionDate}">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="status">Status</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="status">
+                    <input type="text" class="form-control" name="status" value="${expense.status}">
                   </div>
                 </div>
                 
-
+				
+				<input type="hidden" name="expenseId"  value="${expense.expenseId}"/>
+				
 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Save Income</button>
+                    <button type="submit" class="btn btn-primary">Edit Expense</button>
                   </div>
                 </div>
 

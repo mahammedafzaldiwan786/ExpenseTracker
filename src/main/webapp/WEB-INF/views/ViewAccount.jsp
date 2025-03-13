@@ -38,10 +38,10 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Account Name: ${account.accountName}</li>
-                <li class="list-group-item">Amount:  ${account.amount}</li>
-                <li class="list-group-item">Description :  ${account.description} </li>
-              
+                <li class="list-group-item">Account Name: ${account[0][4]}</li>
+                <li class="list-group-item">Amount:  ${account[0][1]}</li>
+                <li class="list-group-item">Description :  ${account[0][2]} </li>
+                <li class="list-group-item">User :  ${account[0][5]} </li>
               </ul><!-- End Default List group -->
 
             </div>

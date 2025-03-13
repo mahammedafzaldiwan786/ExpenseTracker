@@ -46,8 +46,7 @@
                 <li class="list-group-item">Gender : ${user.gender }</li>
                 <li class="list-group-item">City : ${user.city }</li>
                 <li class="list-group-item">State : ${user.state }</li>
-                 <li class="list-group-item">Profile Picture : <img src="${user.profilePicPath}"  height="200px" width="200px"/></li>
-                       
+                 <li class="list-group-item">Profile Picture : <img src="${user.profilePicPath}"  height="200px" width="200px"/></li>     
               </ul><!-- End Default List group -->
 
             </div>

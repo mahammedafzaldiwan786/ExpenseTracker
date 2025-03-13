@@ -71,7 +71,7 @@
 															<td>${account.accountName }</td>
 															<td>${account.amount }</td>
 															<td>${account.description }</td>
-															<td><a href="viewaccount?accountId=${account.accountId}">View</a> | Edit | <a href="deleteaccount?accountId=${account.accountId}">Delete</a> </td>
+															<td><a href="viewaccount?accountId=${account.accountId}">View</a> | <a href="editaccount?accountId=${account.accountId}">Edit</a> | <a href="deleteaccount?accountId=${account.accountId}">Delete</a> </td>
 														</tr>
 												</c:forEach>
 										</tbody>

@@ -58,19 +58,14 @@ public class CategoryController {
 	@GetMapping("viewcategory")
 	public String viewcategory(Integer categoryId,Model model) {
 		
-	System.out.println("Category ID : "+categoryId);
+		System.out.println("Category ID : "+categoryId);
 		
-		Optional<CategoryEntity> op = categoryRepository.findById(categoryId);
+		List<Object[]> category = categoryRepository.getBycategoryId(categoryId);
 		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			CategoryEntity category = op.get();
-			// send data to jsp ->
+	
 			model.addAttribute("category", category);
 
-		}
+		
 		
 		return "ViewCategory";
 	}

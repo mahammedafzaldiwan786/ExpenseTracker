@@ -76,7 +76,7 @@
 													<td><img src="${expense.billPicPath}"  height="50px" width="50px"/></td>
 													<td>${expense.transactionDate }</td>
 													<td>${expense.description }</td>
-													<td><a href="viewexpense?expenseId=${expense.expenseId}">View</a> | Edit | <a href="deleteexpense?expenseId=${expense.expenseId}">Delete</a> </td>
+													<td><a href="viewexpense?expenseId=${expense.expenseId}">View</a> | <a href="editexpense?expenseId=${expense.expenseId}">Edit</a> | <a href="deleteexpense?expenseId=${expense.expenseId}">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

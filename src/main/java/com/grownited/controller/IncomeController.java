@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
+import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.IncomeEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
@@ -27,7 +28,13 @@ public class IncomeController {
 	AccountRepository accountRepository;
 	
 	@GetMapping("newincome")
-	public String newincome() {
+	public String newincome(Model model) {
+		
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		System.out.println("accountList"+accountList);
+		
+		model.addAttribute("accountList", accountList);
 		
 		
 		return "NewIncome";

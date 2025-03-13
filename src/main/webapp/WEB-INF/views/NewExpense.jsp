@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+		
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,12 +46,69 @@
                   </div>
                 </div>
                 
+                
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Category</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="categoryId">
+                      <option selected="">select category</option>
+                     	 <c:forEach items="${categoryList}" var="category">
+
+								<option value="${category.categoryId}">${category.categoryName }</option>
+			
+						</c:forEach>
+
+                    </select>
+                  </div>
+                </div>
+                
+                
+                
+                
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Subcategory</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="subcategoryId">
+                      <option selected="">select subcategory</option>
+                     	 <c:forEach items="${subcategoryList}" var="subcategory">
+
+								<option value="${subcategory.subcategoryId}">${subcategory.subcategoryName }</option>
+			
+						</c:forEach>
+
+                    </select>
+                  </div>
+                </div>
+                
+                
+                
+                
+                
+                
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="amount">Amount</label>
                   <div class="col-sm-10">
                     <input type="number" class="form-control"  name="amount">
                   </div>
                 </div>
+                
+                
+                
+                  <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Account</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="accountId">
+                      <option selected="">select account</option>
+                     	 <c:forEach items="${accountList}" var="account">
+
+								<option value="${account.accountId}">${account.accountName }</option>
+			
+						</c:forEach>
+
+                    </select>
+                  </div>
+                </div>
+                
                 
                 
                  <div class="row mb-3">
@@ -71,6 +132,22 @@
                   <label for="inputDate" class="col-sm-2 col-form-label">Transaction Date</label>
                   <div class="col-sm-10">
                     <input type="date" class="form-control" name="transactionDate">
+                  </div>
+                </div>
+                
+                
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Vendor</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="vendorId">
+                      <option selected="">select vandor</option>
+                     	 <c:forEach items="${vendorList}" var="vendor">
+
+								<option value="${vendor.vendorId}">${vendor.vendorName }</option>
+			
+						</c:forEach>
+
+                    </select>
                   </div>
                 </div>
                 

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
+import com.grownited.entity.CategoryEntity;
+import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
 
@@ -60,20 +62,59 @@ public class AccountController {
 		
 	System.out.println("Account ID : "+accountId);
 		
-		Optional<AccountEntity> op = accountRepository.findById(accountId);
+		List<Object[]> account = accountRepository.getByaccountId(accountId);
 		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			AccountEntity account = op.get();
-			// send data to jsp ->
-			model.addAttribute("account", account);
-
-		}
+		model.addAttribute("account", account);
 		
 		return "ViewAccount";
 	}
+	
+	
+
+	@GetMapping("editaccount")
+	public String editaccount(Integer accountId,Model model) {
+		
+		
+		Optional<AccountEntity> op = accountRepository.findById(accountId);
+		
+//		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/listaccount";
+		} else {
+			
+			
+//			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("account",op.get());
+			return "EditAccount";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateaccount")
+	public String updateaccount(AccountEntity accountEntity) {
+		
+		System.out.println("accountEntity.getAccountId()) ====>"+accountEntity.getAccountId());//id? db? 
+
+		Optional<AccountEntity> op = accountRepository.findById(accountEntity.getAccountId());
+		
+		if(op.isPresent())
+		{
+			AccountEntity dbAccount = op.get(); 
+			dbAccount.setAccountName(accountEntity.getAccountName());
+			dbAccount.setAmount(accountEntity.getAmount());
+			dbAccount.setDescription(accountEntity.getDescription());
+			
+			
+			accountRepository.save(dbAccount);
+			//
+		}
+		return "redirect:/listaccount";
+	}
+	
 	
 	
 	@GetMapping("deleteaccount")

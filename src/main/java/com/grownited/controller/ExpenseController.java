@@ -14,9 +14,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.grownited.entity.AccountEntity;
+import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ExpenseEntity;
+import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.entity.VendorEntity;
+import com.grownited.repository.AccountRepository;
+import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.ExpenseRepository;
+import com.grownited.repository.SubcategoryRepository;
+import com.grownited.repository.VendorRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,13 +34,46 @@ public class ExpenseController {
 	@Autowired
 	ExpenseRepository expenseRepository;
 	
+	@Autowired
+	AccountRepository accountRepository;
+	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
+	@Autowired
+	SubcategoryRepository subcategoryRepository;
+	
+	@Autowired
+	VendorRepository vendorRepository;
+	
 	
 	@Autowired
 	Cloudinary cloudinary;
 	
 	@GetMapping("newexpense")
-	public String newexpense() {
+	public String newexpense(HttpSession session ,Model model) {
 		
+
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		model.addAttribute("accountList", accountList);
+	
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		
+		List<SubcategoryEntity> subcategoryList =  subcategoryRepository.findAll();
+		
+		model.addAttribute("subcategoryList", subcategoryList);
+		
+		session.setAttribute("subcategoryList", subcategoryList);
+	
+		
+		List<VendorEntity> vendorList =  vendorRepository.findAll();
+		
+		model.addAttribute("vendorList", vendorList);
 		
 		return "NewExpense";
 	}
@@ -59,7 +100,9 @@ public class ExpenseController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		expenseEntity.setUserId(userId);
+		
 
+		
 		
 		
 		expenseRepository.save(expenseEntity);
@@ -98,6 +141,60 @@ public class ExpenseController {
 		
 		return "ViewExpense";
 	}
+	
+	
+
+	@GetMapping("editexpense")
+	public String editexpense(Integer expenseId,Model model) {
+		
+		
+		Optional<ExpenseEntity> op = expenseRepository.findById(expenseId);
+		
+//		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/listexpense";
+		} else {
+			
+			
+//			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("expense",op.get());
+			return "EditExpense";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateexpense")
+	public String updateexpense(ExpenseEntity expenseEntity) {
+		
+		System.out.println("expenseEntity.getExpenseId() ====>"+expenseEntity.getExpenseId());//id? db? 
+
+		Optional<ExpenseEntity> op = expenseRepository.findById(expenseEntity.getExpenseId());
+		
+		if(op.isPresent())
+		{
+			ExpenseEntity dbExpense = op.get(); 
+			dbExpense.setExpenseName(expenseEntity.getExpenseName());
+			dbExpense.setAmount(expenseEntity.getAmount());
+			dbExpense.setDescription(expenseEntity.getDescription());
+			dbExpense.setTransactionDate(expenseEntity.getTransactionDate());
+			dbExpense.setStatus(expenseEntity.getStatus());
+			
+			expenseRepository.save(dbExpense);
+			
+			//
+		}
+		return "redirect:/listexpense";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	@GetMapping("deleteexpense")
