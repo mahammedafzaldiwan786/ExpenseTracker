@@ -38,12 +38,20 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Expense Name : ${expense.expenseName }</li>
-                <li class="list-group-item">Amount : ${expense.amount }</li>
-                <li class="list-group-item">Description : ${expense.description }</li>
-                <li class="list-group-item">Transaction Date : ${expense.transactionDate }</li>
-                <li class="list-group-item">Status : ${expense.status }</li>
-                <li class="list-group-item">Picture of Bill : <img src="${expense.billPicPath}"  height="200px" width="200px"/></li>
+                <li class="list-group-item">Expense Name : ${expense[0][10] }</li>
+                <li class="list-group-item">Amount : ${expense[0][2]}</li>
+                <li class="list-group-item">Description : ${expense[0][4]}</li>
+                <li class="list-group-item">Transaction Date : ${expense[0][7]}</li>
+                <li class="list-group-item">Status : ${expense[0][5]}</li>
+                <li class="list-group-item">Picture of Bill : <img src="${expense[0][11]}"  height="200px" width="200px"/></li>
+                 <li class="list-group-item">Category : ${expense[0][14]}</li>
+                 <li class="list-group-item">Subcategory : ${expense[0][15] }</li>
+                 <li class="list-group-item">Account : ${expense[0][13] }</li>
+                 <li class="list-group-item">Vendor : ${expense[0][16] }</li>
+                 <li class="list-group-item">User : ${expense[0][12]}</li>
+                 
+                 
+                 
               </ul><!-- End Default List group -->
 
             </div>

@@ -38,8 +38,9 @@
 				
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Subcategory : ${subcategory[0][3]} </li>
-                <li class="list-group-item">Category: ${subcategory[0][4]} </li>
+                <li class="list-group-item">Subcategory Name: ${subcategory[0][3]} </li>
+                <li class="list-group-item">Category Name: ${subcategory[0][4]} </li>
+                 <li class="list-group-item">User Name: ${subcategory[0][5]}</li>
                 
            
               

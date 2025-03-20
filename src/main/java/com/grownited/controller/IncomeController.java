@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
-import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.IncomeEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
@@ -75,20 +74,72 @@ public class IncomeController {
 		
 	System.out.println("Income ID : "+incomeId);
 		
-		Optional<IncomeEntity> op = incomeRepository.findById(incomeId);
+		List<Object[]>  income = incomeRepository.getByIncomeId(incomeId);
 		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			IncomeEntity income = op.get();
-			// send data to jsp ->
-			model.addAttribute("income", income);
+	
+		model.addAttribute("income", income);
 
-		}
+		
 		
 		return "ViewIncome";
 	}
+	
+	
+	
+	
+
+	@GetMapping("editincome")
+	public String editincome(Integer incomeId,Model model) {
+		
+		
+		Optional<IncomeEntity> op = incomeRepository.findById(incomeId);
+		
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/listincome";
+		} else {
+			
+			
+			model.addAttribute("accountList", accountList);
+			model.addAttribute("income",op.get());
+			return "EditIncome";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updateincome")
+	public String updateincome(IncomeEntity incomeEntity) {
+		
+		System.out.println("expenseEntity.getExpenseId() ====>"+incomeEntity.getIncomeId());//id? db? 
+
+		Optional<IncomeEntity> op = incomeRepository.findById(incomeEntity.getIncomeId());
+		
+		if(op.isPresent())
+		{
+			IncomeEntity dbIncome = op.get(); 
+			dbIncome.setIncomeName(incomeEntity.getIncomeName());
+			dbIncome.setAccountId(incomeEntity.getAccountId());
+			dbIncome.setAmount(incomeEntity.getAmount());
+			dbIncome.setTransactionDate(incomeEntity.getTransactionDate());
+			dbIncome.setDescription(incomeEntity.getDescription());
+			dbIncome.setStatus(incomeEntity.getStatus());
+			
+			incomeRepository.save(dbIncome);
+			
+			//
+		}
+		return "redirect:/listincome";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	@GetMapping("deleteincome")

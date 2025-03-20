@@ -16,8 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.grownited.entity.CategoryEntity;
-import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -135,10 +133,10 @@ public class UserController {
 	//save -> entity -> id present -> present in db -> update  
 
 	@PostMapping("updateuser")
-	public String updateuser(UserEntity userEntity) {
+	public String updateuser(UserEntity userEntity,MultipartFile profilePic) {
 		
 		System.out.println("userEntity.getUserId() ====>"+userEntity.getUserId());//id? db? 
-
+		System.out.println("Picture ===>"+profilePic);
 		Optional<UserEntity> op = userRepository.findById(userEntity.getUserId());
 		
 		if(op.isPresent())
@@ -153,6 +151,18 @@ public class UserController {
 			dbUser.setState(userEntity.getState());
 			dbUser.setDateOfBirth(userEntity.getDateOfBirth());
 			
+			
+//			if(profilePic != null) {
+//					try {
+//							Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+//								System.out.println(result);
+//								System.out.println(result.get("url"));
+//								dbUser.setProfilePicPath(result.get("url").toString());
+//					} catch (IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//			}		
 			
 			userRepository.save(dbUser);
 		}

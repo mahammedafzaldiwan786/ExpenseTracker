@@ -66,7 +66,7 @@
 			
 												<tr>
 													<td>${vendor.vendorName }</td>
-													<td><a href="viewvendor?vendorId=${vendor.vendorId}">View</a> | Edit | <a href="deletevendor?vendorId=${vendor.vendorId}">Delete</a> </td>
+													<td><a href="viewvendor?vendorId=${vendor.vendorId}" class="btn btn-primary">View</a>    <a href="editvendor?vendorId=${vendor.vendorId}" class="btn btn-success">Edit</a>   <a href="deletevendor?vendorId=${vendor.vendorId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

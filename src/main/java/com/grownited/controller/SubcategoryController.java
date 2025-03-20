@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.grownited.dto.CityDto;
-import com.grownited.dto.SubcategoryDto;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;

@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Expense Tracker | New State</title>
+<title>Expense Tracker | Edit State</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -31,22 +31,23 @@
 		<!-- End Page Title -->
 
 			<div class="card-body">
-              <h5 class="card-title">Add New State</h5>
+              <h5 class="card-title"> Edit State</h5>
 
               <!-- General Form Elements -->
-              <form action="savestate" method="post">
+              <form action="updatestate" method="post">
 				   <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label" name="stateName">New State</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="stateName">
+                    <input type="text" class="form-control" name="stateName" value="${state.stateName}">
                   </div>
                 </div>
                 
+                 <input type="hidden" name="stateId"  value="${state.stateId}"/>
                 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Save Category</button>
+                    <button type="submit" class="btn btn-primary">Edit State</button>
                   </div>
                 </div>
 

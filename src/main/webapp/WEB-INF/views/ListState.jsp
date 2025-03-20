@@ -65,7 +65,7 @@
 											<c:forEach items="${allState}" var="state">
 												<tr>
 													<td>${state.stateName}</td>
-													<td><a href="viewuser?userId=${user.userId}">View</a> | Edit | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
+													<td><a href="viewstate?stateId=${state.stateId}" class="btn btn-success">View</a>  <a href="editstate?stateId=${state.stateId}" class="btn btn-primary">Edit</a>  <a href="deletestate?stateId=${state.stateId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

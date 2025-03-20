@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
-import com.grownited.entity.CategoryEntity;
-import com.grownited.entity.SubcategoryEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
 
@@ -62,7 +60,7 @@ public class AccountController {
 		
 	System.out.println("Account ID : "+accountId);
 		
-		List<Object[]> account = accountRepository.getByaccountId(accountId);
+		List<Object[]> account = accountRepository.getByAccountId(accountId);
 		
 		model.addAttribute("account", account);
 		

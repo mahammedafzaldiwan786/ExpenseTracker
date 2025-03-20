@@ -59,21 +59,66 @@ public class VendorController {
 		
 	System.out.println("Vendor ID : "+vendorId);
 		
-		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
+//		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
 		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			VendorEntity vendor = op.get();
-			// send data to jsp ->
-			model.addAttribute("vendor", vendor);
+		List<Object[]> vendor  = vendorRepository.getByVendorId(vendorId);
+		
+		model.addAttribute("vendor", vendor);
 
-		}
+		
 		
 		return "ViewVendor";
 	}
 	
+	
+	
+	
+	
+	
+
+	@GetMapping("editvendor")
+	public String editvendor(Integer vendorId,Model model) {
+		
+		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
+		
+		
+		if (op.isEmpty()) {
+			return "redirect:/listvendor";
+		} else {
+			
+			
+			
+			model.addAttribute("vendor",op.get());
+			return "EditVendor";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("updatevendor")
+	public String updatevendor(VendorEntity vendorEntity) {
+		
+		System.out.println("vendorEntity.getVendorId()( ====>"+vendorEntity.getVendorId());//id? db? 
+
+		Optional<VendorEntity> op = vendorRepository.findById(vendorEntity.getVendorId());
+		
+		if(op.isPresent())
+		{
+			VendorEntity dbVendor = op.get(); 
+			dbVendor.setVendorName(vendorEntity.getVendorName());
+			
+			
+			
+			//
+			vendorRepository.save(dbVendor);
+		}
+		return "redirect:/listvendor";
+	}
+	
+	
+
 	
 	@GetMapping("deletevendor")
 	public String deletevendor(Integer vendorId) {

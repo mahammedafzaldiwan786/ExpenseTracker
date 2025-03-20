@@ -125,19 +125,15 @@ public class ExpenseController {
 	@GetMapping("viewexpense")
 	public String viewexpense(Integer expenseId,Model model) {
 		
-	System.out.println("Expense ID : "+expenseId);
+		System.out.println("Expense ID : "+expenseId);
 		
-		Optional<ExpenseEntity> op = expenseRepository.findById(expenseId);
+	
+		List<Object[]> expense = expenseRepository.getByexpenseId(expenseId);
 		
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			ExpenseEntity expense = op.get();
-			// send data to jsp ->
-			model.addAttribute("expense", expense);
+	
+		model.addAttribute("expense", expense);
 
-		}
+		
 		
 		return "ViewExpense";
 	}
@@ -149,6 +145,27 @@ public class ExpenseController {
 		
 		
 		Optional<ExpenseEntity> op = expenseRepository.findById(expenseId);
+		
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		model.addAttribute("accountList", accountList);
+	
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		
+		List<SubcategoryEntity> subcategoryList =  subcategoryRepository.findAll();
+		
+		model.addAttribute("subcategoryList", subcategoryList);
+		
+//		session.setAttribute("subcategoryList", subcategoryList);
+	
+		
+		List<VendorEntity> vendorList =  vendorRepository.findAll();
+		
+		model.addAttribute("vendorList", vendorList);
 		
 //		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
@@ -182,6 +199,10 @@ public class ExpenseController {
 			dbExpense.setDescription(expenseEntity.getDescription());
 			dbExpense.setTransactionDate(expenseEntity.getTransactionDate());
 			dbExpense.setStatus(expenseEntity.getStatus());
+			dbExpense.setAccountId(expenseEntity.getAccountId());
+			dbExpense.setCategoryId(expenseEntity.getCategoryId());
+			dbExpense.setSubcategoryId(expenseEntity.getSubcategoryId());
+			dbExpense.setVendorId(expenseEntity.getVendorId());
 			
 			expenseRepository.save(dbExpense);
 			

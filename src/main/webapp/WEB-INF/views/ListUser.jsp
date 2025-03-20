@@ -58,10 +58,11 @@
 
 												<th>First Name</th>
 												<th>Last Name</th>
+										 		<th>Profile Photo</th> 
 												<th>Email</th>
 												<th>Contact No.</th>
-												<th>City</th>	
-												<th>State</th>							
+											<!--	<th>City</th>	-->
+											<!--	<th>State</th>	-->						
 												<th>DOB</th>
 												<th>Gender</th>
 												<th>Action</th>
@@ -75,13 +76,14 @@
 	   											<tr>
 	   												<td>${user.firstName }</td>
 	   												<td>${user.lastName }</td>
+	   												<td> <img src="${user.profilePicPath}"  height="100px" width="100px"/> </td>
 	   												<td>${user.email }</td>
 	   												<td>${user.contactNum }</td>
-	   												<td>${user.city }</td>
-	   												<td>${user.state }</td>							
+	   											<!--	<td>${user.city }</td>			-->
+	   												<!--<td>${user.state }</td>		-->					
 	   												<td>${user.dateOfBirth }</td>
 	   												<td>${user.gender }</td>
-	   												<td><a href="viewuser?userId=${user.userId}">View</a> | <a href="edituser?userId=${user.userId}">Edit</a> | <a href="deleteuser?userId=${user.userId}">Delete</a> </td>
+	   												<td><a href="viewuser?userId=${user.userId}" class="btn btn-primary">View</a>  <a href="edituser?userId=${user.userId}" class="btn btn-success">Edit</a>  <a href="deleteuser?userId=${user.userId}" class="btn btn-danger">Delete</a> </td>
 	   											</tr>
 	   										</c:forEach>
 										</tbody>

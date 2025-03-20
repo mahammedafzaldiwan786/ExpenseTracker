@@ -74,7 +74,7 @@
 													<td>${income.amount }</td>
 													<td>${income.transactionDate }</td>
 													<td>${income.description }</td>
-													<td><a href="viewincome?incomeId=${income.incomeId}">View</a> | Edit | <a href="deleteincome?incomeId=${income.incomeId}">Delete</a> </td>
+													<td><a href="viewincome?incomeId=${income.incomeId}" class="btn btn-primary">View</a>                      <a href="editincome?incomeId=${income.incomeId}" class="btn btn-success">Edit</a>                              <a href="deleteincome?incomeId=${income.incomeId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

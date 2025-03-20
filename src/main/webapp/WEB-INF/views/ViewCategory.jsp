@@ -39,7 +39,7 @@
               <!-- Default List group -->
               <ul class="list-group">
                 <li class="list-group-item">	Category Name: ${category[0][2]}</li>
-                <li class="list-group-item">	 User : ${category[0][3]}</li>
+                <li class="list-group-item">	 User Name: ${category[0][3]}</li>
            
               
               </ul><!-- End Default List group -->

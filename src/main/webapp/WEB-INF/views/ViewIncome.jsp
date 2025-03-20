@@ -38,11 +38,13 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Income Name : ${income.incomeName }</li>
-                <li class="list-group-item">Amount : ${income.amount }</li>
-                <li class="list-group-item">Description : ${income.description }</li>
-                <li class="list-group-item">Transaction Date : ${income.transactionDate }</li>
-                <li class="list-group-item">Status : ${income.status }</li>
+                <li class="list-group-item">Income Name : ${income[0][7] }</li>
+                <li class="list-group-item">Amount : ${income[0][2]}</li>
+                <li class="list-group-item">Description : ${income[0][3]}</li>
+                <li class="list-group-item">Transaction Date : ${income[0][5]}</li>
+                <li class="list-group-item">Status : ${income[0][4]}</li>
+                <li class="list-group-item">User : ${income[0][8]}</li>
+                <li class="list-group-item">Account : ${income[0][9]}</li>
               </ul><!-- End Default List group -->
 
             </div>

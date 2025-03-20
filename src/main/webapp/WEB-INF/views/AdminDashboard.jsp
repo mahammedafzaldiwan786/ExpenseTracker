@@ -189,6 +189,14 @@
 						<h2>Admin</h2>
 						Welcome , ${user.firstName}
 						<br>
+						
+								<br>
+									<img src="${user.profilePicPath}"  height="200px" width="200px"/>
+
+								<br>
+						
+						
+						
 						<a href="newuser">Add New User</a> 
 						<br>
 						<a href="listuser">List All User</a> 

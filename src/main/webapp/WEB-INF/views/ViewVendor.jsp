@@ -38,7 +38,8 @@
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Vendor Name: ${vendor.vendorName} </li>
+                <li class="list-group-item">Vendor Name: ${vendor[0][2]} </li>
+                <li class="list-group-item">User Name: ${vendor[0][3]} </li>
            
               
               </ul><!-- End Default List group -->

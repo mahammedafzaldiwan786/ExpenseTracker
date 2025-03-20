@@ -67,7 +67,7 @@
 			
 												<tr>
 													<td>${category.categoryName }</td>
-													<td><a href="viewcategory?categoryId=${category.categoryId}">View</a> | Edit | <a href="deletecategory?categoryId=${category.categoryId}">Delete</a> </td>
+													<td><a href="viewcategory?categoryId=${category.categoryId}" class="btn btn-primary">View</a>                <a href="editcategory?categoryId=${category.categoryId}" class="btn btn-success">Edit</a>               <a href="deletecategory?categoryId=${category.categoryId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

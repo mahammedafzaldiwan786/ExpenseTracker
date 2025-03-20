@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Expense Tracker | New State</title>
+<title>Expense Tracker | View State</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -30,29 +32,21 @@
 		</div>
 		<!-- End Page Title -->
 
+			
 			<div class="card-body">
-              <h5 class="card-title">Add New State</h5>
+              <h5 class="card-title">View State</h5>
 
-              <!-- General Form Elements -->
-              <form action="savestate" method="post">
-				   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="stateName">New State</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="stateName">
-                  </div>
-                </div>
+              <!-- Default List group -->
+              <ul class="list-group">
                 
-                
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Save Category</button>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
+                <li class="list-group-item">	 State Name : ${state[0][1]}</li>
+           
+              
+              </ul><!-- End Default List group -->
 
             </div>
+			
+			
 
 	</main>
 	<!-- main content end  -->

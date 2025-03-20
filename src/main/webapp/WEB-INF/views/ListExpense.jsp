@@ -60,7 +60,7 @@
 												<th>Amount</th>
 												<th>Bill Pic</th>
 												<th>Transaction Date</th>
-												<th>Description</th>
+									<!-- 			<th>Description</th>      -->
 												<th>Action</th>	
 											</tr>
 										</thead>
@@ -75,8 +75,8 @@
 													<td>${expense.amount }</td>
 													<td><img src="${expense.billPicPath}"  height="50px" width="50px"/></td>
 													<td>${expense.transactionDate }</td>
-													<td>${expense.description }</td>
-													<td><a href="viewexpense?expenseId=${expense.expenseId}">View</a> | <a href="editexpense?expenseId=${expense.expenseId}">Edit</a> | <a href="deleteexpense?expenseId=${expense.expenseId}">Delete</a> </td>
+									<!--  				<td>${expense.description }</td>        -->
+													<td><a href="viewexpense?expenseId=${expense.expenseId}" class="btn btn-primary">View</a>                 <a href="editexpense?expenseId=${expense.expenseId}" class="btn btn-success">Edit</a>                       <a href="deleteexpense?expenseId=${expense.expenseId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

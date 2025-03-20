@@ -57,6 +57,7 @@
 											<tr>
 												<th>City Name</th>
 												<th>State Name</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 
@@ -66,6 +67,7 @@
 												<tr>
 													<td>${city[1]}</td>
 													<td>${city[3]}</td>
+													<td><a href="viewcity?cityId=${city[0]}" class="btn btn-primary">View</a>  <a href="editcity?cityId=${city[0]}" class="btn btn-success">Edit</a>  <a href="deletecity?cityId=${city[0]}" class="btn btn-danger">Delete</a></td>
 												</tr>
 											</c:forEach>
 										</tbody>

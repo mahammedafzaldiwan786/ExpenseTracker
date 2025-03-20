@@ -42,6 +42,7 @@
                 <li class="list-group-item">Amount:  ${account[0][1]}</li>
                 <li class="list-group-item">Description :  ${account[0][2]} </li>
                 <li class="list-group-item">User :  ${account[0][5]} </li>
+                <!--<li class="list-group-item">Income :${account[0][6]}   </li>-->
               </ul><!-- End Default List group -->
 
             </div>

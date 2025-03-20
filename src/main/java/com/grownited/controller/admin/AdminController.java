@@ -10,4 +10,27 @@ public class AdminController {
 	public String adminDashboard() {
 		return "AdminDashboard";
 	}
+	
+	
+	
+	//for testing 
+	
+		@GetMapping("/adminheader")
+		public String adminheader() {
+			
+			return "AdminHeader";
+		}
+		
+		@GetMapping("/adminfooter")
+		public String adminfooter() {
+			
+			return "AdminFooter";
+		}
+		
+		@GetMapping("/adminsidebar")
+		public String adminsidebar() {
+			
+			return "AdminSidebar";
+		}
+		
 }

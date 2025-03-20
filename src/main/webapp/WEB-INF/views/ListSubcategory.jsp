@@ -69,7 +69,7 @@
 												<tr>
 													<td>${subcategory[3] }</td>
 													<td>${subcategory[4] }</td>
-													<td><a href="viewsubcategory?subcategoryId=${subcategory[0]}">View</a> | <a href="editsubcategory?subcategoryId=${subcategory[0]}">Edit</a> | <a href="deletesubcategory?subcategoryId=${subcategory[0]}">Delete</a> </td>
+													<td><a href="viewsubcategory?subcategoryId=${subcategory[0]}" class="btn btn-primary">View</a>                   <a href="editsubcategory?subcategoryId=${subcategory[0]}" class="btn btn-success">Edit</a>                <a href="deletesubcategory?subcategoryId=${subcategory[0]}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>
