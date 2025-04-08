@@ -38,7 +38,7 @@ public class UserController {
 	
 	
 	
-	@PostMapping("saveuser")
+	@PostMapping(value = {"saveuser","adminsaveuser"})
 	public String saveuser(UserEntity userEntity,MultipartFile profilePic) {
 		
 		System.out.println(userEntity.getFirstName());
@@ -79,7 +79,7 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("listuser")
+	@GetMapping(value = {"listuser","adminlistuser"})
 	public String listuser(Model model) {
 		
 		List<UserEntity> userList = userRepository.findAll();
@@ -89,7 +89,7 @@ public class UserController {
 		return "ListUser";
 	}
 	
-	@GetMapping("viewuser")
+	@GetMapping(value = {"viewuser","adminviewuser"})
 	public String viewuser(Integer userId,Model model) {
 		
 		System.out.println("User ID : "+userId);
@@ -113,7 +113,7 @@ public class UserController {
 	
 	
 
-	@GetMapping("edituser")
+	@GetMapping(value = {"edituser","adminedituser"})
 	public String edituser(Integer userId,Model model) {
 		Optional<UserEntity> op = userRepository.findById(userId);
 		
@@ -132,7 +132,7 @@ public class UserController {
 	//save -> entity -> id present -> not present in db -> insert 
 	//save -> entity -> id present -> present in db -> update  
 
-	@PostMapping("updateuser")
+	@PostMapping(value = {"updateuser","adminupdateuser"})
 	public String updateuser(UserEntity userEntity,MultipartFile profilePic) {
 		
 		System.out.println("userEntity.getUserId() ====>"+userEntity.getUserId());//id? db? 
@@ -174,7 +174,7 @@ public class UserController {
 	
 	
 	
-	@GetMapping("deleteuser")
+	@GetMapping(value = {"deleteuser","admindeleteuser"})
 	public String deleteuser(Integer userId) {
 		
 		userRepository.deleteById(userId);

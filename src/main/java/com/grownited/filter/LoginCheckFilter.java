@@ -29,6 +29,8 @@ public class LoginCheckFilter implements Filter {
 		publicURL.add("/authenticate");
 		publicURL.add("/logout");
 		publicURL.add("/updatepassword");
+		publicURL.add("/test1");
+		
 
 	}
 

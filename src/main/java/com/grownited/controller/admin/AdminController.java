@@ -33,4 +33,10 @@ public class AdminController {
 			return "AdminSidebar";
 		}
 		
+		
+		@GetMapping("test1")
+		public String test1() {
+			
+			return "Test1";
+		}
 }

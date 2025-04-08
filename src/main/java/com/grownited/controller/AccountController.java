@@ -124,5 +124,114 @@ public class AccountController {
 		
 		return "redirect:/listaccount";
 	}
+
 	
+//	-------------------------------------------------------------------------------------
+	
+	
+	
+	@GetMapping("adminnewaccount")
+	public String adminnewaccount() {
+		
+		return "AdminNewAccount";
+	}
+	
+	
+	@PostMapping("adminsaveaccount")
+	public String adminsaveaccount(HttpSession session,AccountEntity accountEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		accountEntity.setUserId(userId);
+
+		
+		System.out.println(userId);
+		
+		accountRepository.save(accountEntity);
+		
+		return "redirect:/adminlistaccount";
+	}
+	
+	
+	@GetMapping("adminlistaccount")
+	public String adminlistaccount(Model model) {
+		
+		List<AccountEntity> accountList =  accountRepository.findAll();
+
+		model.addAttribute("accountList",accountList);
+		
+		return "AdminListAccount";
+	}
+	
+	
+	@GetMapping("adminviewaccount")
+	public String adminviewaccount(Integer accountId,Model model) {
+		
+	System.out.println("Account ID : "+accountId);
+		
+		List<Object[]> account = accountRepository.getByAccountId(accountId);
+		
+		model.addAttribute("account", account);
+		
+		return "AdminViewAccount";
+	}
+	
+	
+
+	@GetMapping("admineditaccount")
+	public String admineditaccount(Integer accountId,Model model) {
+		
+		
+		Optional<AccountEntity> op = accountRepository.findById(accountId);
+		
+//		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/adminlistaccount";
+		} else {
+			
+			
+//			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("account",op.get());
+			return "AdminEditAccount";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("adminupdateaccount")
+	public String adminupdateaccount(AccountEntity accountEntity) {
+		
+		System.out.println("accountEntity.getAccountId()) ====>"+accountEntity.getAccountId());//id? db? 
+
+		Optional<AccountEntity> op = accountRepository.findById(accountEntity.getAccountId());
+		
+		if(op.isPresent())
+		{
+			AccountEntity dbAccount = op.get(); 
+			dbAccount.setAccountName(accountEntity.getAccountName());
+			dbAccount.setAmount(accountEntity.getAmount());
+			dbAccount.setDescription(accountEntity.getDescription());
+			
+			
+			accountRepository.save(dbAccount);
+			//
+		}
+		return "redirect:/adminlistaccount";
+	}
+	
+	
+	
+	@GetMapping("admindeleteaccount")
+	public String admindeleteuser(Integer accountId) {
+		
+		accountRepository.deleteById(accountId);
+		
+		System.out.println("Account successfully deleted!");
+		
+		return "redirect:/adminlistaccount";
+	}
+
 }

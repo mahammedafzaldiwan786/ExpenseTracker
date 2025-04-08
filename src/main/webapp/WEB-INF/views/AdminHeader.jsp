@@ -5,7 +5,9 @@
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Expense Tracker</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn">
+      	<Style> ::before</Style>
+      </i>
     </div><!-- End Logo -->
 
     <div class="search-bar">
@@ -231,7 +233,9 @@
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Expense Tracker</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn">
+      		<Style> ::before</Style>
+      </i>
     </div><!-- End Logo -->
 
     <div class="search-bar">
@@ -457,7 +461,9 @@
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Expense Tracker</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn">
+      		<Style> ::before</Style>
+      </i>
     </div><!-- End Logo -->
 
     <div class="search-bar">

@@ -129,7 +129,124 @@ public class VendorController {
 		
 		return "redirect:/listvendor";
 	}	
+
 	
+	
+	
+//	------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	@GetMapping("adminnewvendor")
+	public String adminnewvendor() {
+		
+		
+		return "AdminNewVendor";
+	}
+	
+	
+	@PostMapping("adminsavevendor")
+	public String adminsavevendor(HttpSession session,VendorEntity vendorEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		vendorEntity.setUserId(userId);
+		
+		
+		vendorRepository.save(vendorEntity);
+		
+		return "redirect:/adminlistvendor";
+	}
+	
+	
+	@GetMapping("adminlistvendor")
+	public String adminlistvendor(Model model) {
+		
+		List<VendorEntity> vendorList =  vendorRepository.findAll();
+		
+		model.addAttribute("vendorList",vendorList);
+		
+		return "AdminListVendor";
+	}
+	
+	
+	@GetMapping("adminviewvendor")
+	public String adminviewvendor(Integer vendorId,Model model) {
+		
+	System.out.println("Vendor ID : "+vendorId);
+		
+//		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
+		
+		List<Object[]> vendor  = vendorRepository.getByVendorId(vendorId);
+		
+		model.addAttribute("vendor", vendor);
+
+		
+		
+		return "AdminViewVendor";
+	}
+	
+	
+	
+	
+	
+	
+
+	@GetMapping("admineditvendor")
+	public String admineditvendor(Integer vendorId,Model model) {
+		
+		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
+		
+		
+		if (op.isEmpty()) {
+			return "redirect:/adminlistvendor";
+		} else {
+			
+			
+			
+			model.addAttribute("vendor",op.get());
+			return "AdminEditVendor";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("adminupdatevendor")
+	public String adminupdatevendor(VendorEntity vendorEntity) {
+		
+		System.out.println("vendorEntity.getVendorId()( ====>"+vendorEntity.getVendorId());//id? db? 
+
+		Optional<VendorEntity> op = vendorRepository.findById(vendorEntity.getVendorId());
+		
+		if(op.isPresent())
+		{
+			VendorEntity dbVendor = op.get(); 
+			dbVendor.setVendorName(vendorEntity.getVendorName());
+			
+			
+			
+			//
+			vendorRepository.save(dbVendor);
+		}
+		return "redirect:/adminlistvendor";
+	}
+	
+	
+
+	
+	@GetMapping("admindeletevendor")
+	public String admindeletevendor(Integer vendorId) {
+		
+		vendorRepository.deleteById(vendorId);
+		
+		System.out.println("Vendor successfully deleted!");
+		
+		return "redirect:/adminlistvendor";
+	}	
+
 	
 	
 }

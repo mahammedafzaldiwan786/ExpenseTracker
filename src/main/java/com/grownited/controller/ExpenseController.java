@@ -227,6 +227,192 @@ public class ExpenseController {
 		
 		return "redirect:/listexpense";
 	}
+
 	
+	
+	
+	
+//	--------------------------------------------------------------------------------------------------------
+	
+	
+	
+	@GetMapping("adminnewexpense")
+	public String adminnewexpense(HttpSession session ,Model model) {
+		
+
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		model.addAttribute("accountList", accountList);
+	
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		
+		List<SubcategoryEntity> subcategoryList =  subcategoryRepository.findAll();
+		
+		model.addAttribute("subcategoryList", subcategoryList);
+		
+		session.setAttribute("subcategoryList", subcategoryList);
+	
+		
+		List<VendorEntity> vendorList =  vendorRepository.findAll();
+		
+		model.addAttribute("vendorList", vendorList);
+		
+		return "AdminNewExpense";
+	}
+	
+	
+	@PostMapping("adminsaveexpense")
+	public String adminsaveexpense(ExpenseEntity expenseEntity,HttpSession session,MultipartFile billPic){
+		
+		
+		
+//		System.out.println(billPic.getOriginalFilename());
+		
+		try {
+			Map result = cloudinary.uploader().upload(billPic.getBytes(), ObjectUtils.emptyMap());
+			System.out.println(result);
+			System.out.println(result.get("url"));
+			expenseEntity.setBillPicPath(result.get("url").toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		expenseEntity.setUserId(userId);
+		
+
+		
+		
+		
+		expenseRepository.save(expenseEntity);
+		
+		return "redirect:/adminlistexpense";
+	}
+	
+	
+	@GetMapping("adminlistexpense")
+	public String adminlistexpense(Model model) {
+		
+		List<ExpenseEntity> expenseList =  expenseRepository.findAll();
+		
+		model.addAttribute("expenseList",expenseList);
+		
+		return "AdminListExpense";
+	}
+	
+	
+	@GetMapping("adminviewexpense")
+	public String adminviewexpense(Integer expenseId,Model model) {
+		
+		System.out.println("Expense ID : "+expenseId);
+		
+	
+		List<Object[]> expense = expenseRepository.getByexpenseId(expenseId);
+		
+	
+		model.addAttribute("expense", expense);
+
+		
+		
+		return "AdminViewExpense";
+	}
+	
+	
+
+	@GetMapping("admineditexpense")
+	public String admineditexpense(Integer expenseId,Model model) {
+		
+		
+		Optional<ExpenseEntity> op = expenseRepository.findById(expenseId);
+		
+		List<AccountEntity> accountList =  accountRepository.findAll();
+		
+		model.addAttribute("accountList", accountList);
+	
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		
+		List<SubcategoryEntity> subcategoryList =  subcategoryRepository.findAll();
+		
+		model.addAttribute("subcategoryList", subcategoryList);
+		
+//		session.setAttribute("subcategoryList", subcategoryList);
+	
+		
+		List<VendorEntity> vendorList =  vendorRepository.findAll();
+		
+		model.addAttribute("vendorList", vendorList);
+		
+//		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/adminlistexpense";
+		} else {
+			
+			
+//			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("expense",op.get());
+			return "AdminEditExpense";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("adminupdateexpense")
+	public String adminupdateexpense(ExpenseEntity expenseEntity) {
+		
+		System.out.println("expenseEntity.getExpenseId() ====>"+expenseEntity.getExpenseId());//id? db? 
+
+		Optional<ExpenseEntity> op = expenseRepository.findById(expenseEntity.getExpenseId());
+		
+		if(op.isPresent())
+		{
+			ExpenseEntity dbExpense = op.get(); 
+			dbExpense.setExpenseName(expenseEntity.getExpenseName());
+			dbExpense.setAmount(expenseEntity.getAmount());
+			dbExpense.setDescription(expenseEntity.getDescription());
+			dbExpense.setTransactionDate(expenseEntity.getTransactionDate());
+			dbExpense.setStatus(expenseEntity.getStatus());
+			dbExpense.setAccountId(expenseEntity.getAccountId());
+			dbExpense.setCategoryId(expenseEntity.getCategoryId());
+			dbExpense.setSubcategoryId(expenseEntity.getSubcategoryId());
+			dbExpense.setVendorId(expenseEntity.getVendorId());
+			
+			expenseRepository.save(dbExpense);
+			
+			//
+		}
+		return "redirect:/adminlistexpense";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("admindeleteexpense")
+	public String admindeleteexpense(Integer expenseId) {
+		
+		expenseRepository.deleteById(expenseId);
+		
+		System.out.println("Expense successfully deleted!");
+		
+		return "redirect:/adminlistexpense";
+	}
+
 	
 }

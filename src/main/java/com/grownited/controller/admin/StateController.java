@@ -24,13 +24,13 @@ public class StateController {
 	
 	
 	
-	@GetMapping("newstate")
+	@GetMapping("adminnewstate")
 	public String newState() {
 		
 		return  "NewState";
 	}
 	
-	@PostMapping("savestate")
+	@PostMapping("adminsavestate")
 	public String saveState(StateEntity stateEntity) {
 		
 		System.out.println(stateEntity.getStateName());
@@ -40,7 +40,7 @@ public class StateController {
 		return "redirect:/liststate";
 	}
 	
-	@GetMapping("liststate")
+	@GetMapping("adminliststate")
 	public String listState(StateEntity stateEntity,Model model) {
 		
 		List<StateEntity> allState = stateRepository.findAll();
@@ -53,7 +53,7 @@ public class StateController {
 	
 	
 
-	@GetMapping("viewstate")
+	@GetMapping("adminviewstate")
 	public String viewstate(Integer stateId,Model model) {
 		
 		System.out.println("state ID : "+stateId);
@@ -72,7 +72,7 @@ public class StateController {
 	
 	
 
-	@GetMapping("editstate")
+	@GetMapping("admineditstate")
 	public String editstate(Integer stateId,Model model) {
 		
 		Optional<StateEntity> op = stateRepository.findById(stateId);
@@ -92,7 +92,7 @@ public class StateController {
 	//save -> entity -> id present -> not present in db -> insert 
 	//save -> entity -> id present -> present in db -> update  
 
-	@PostMapping("updatestate")
+	@PostMapping("adminupdatestate")
 	public String updatestate(StateEntity stateEntity) {
 		
 		System.out.println("stateEntity.getStateId()====>"+stateEntity.getStateId());//id? db? 
@@ -112,7 +112,7 @@ public class StateController {
 	
 	
 	
-	@GetMapping("deletestate")
+	@GetMapping("admindeletestate")
 	public String deletestate(Integer stateId) {
 		
 		stateRepository.deleteById(stateId);

@@ -125,7 +125,115 @@ public class CategoryController {
 		
 		return "redirect:/listcategory";
 	}	
+
 	
+//	---------------------------------------------------------------------------------------------------------
+	
+	
+	@GetMapping("adminnewcategory")
+	public String adminnewcategory() {
+		
+		
+		return "AdminNewCategory";
+	}
+	
+	
+	@PostMapping("adminsavecategory")
+	public String adminsavecategory(CategoryEntity categoryEntity,HttpSession session){
+		
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		categoryEntity.setUserId(userId);
+		
+		categoryRepository.save(categoryEntity);
+		
+		return "redirect:/adminlistcategory";
+	}
+	
+	
+	@GetMapping("adminlistcategory")
+	public String adminlistcategory(Model model) {
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList",categoryList);
+		
+		return "AdminListCategory";
+	}
+	
+	
+	@GetMapping("adminviewcategory")
+	public String adminviewcategory(Integer categoryId,Model model) {
+		
+		System.out.println("Category ID : "+categoryId);
+		
+		List<Object[]> category = categoryRepository.getBycategoryId(categoryId);
+		
+	
+			model.addAttribute("category", category);
+
+		
+		
+		return "AdminViewCategory";
+	}
+	
+	
+	
+	
+
+	@GetMapping("admineditcategory")
+	public String admineditcategory(Integer categoryId,Model model) {
+		
+		Optional<CategoryEntity> op = categoryRepository.findById(categoryId);
+		
+		
+		if (op.isEmpty()) {
+			return "redirect:/adminlistcategory";
+		} else {
+			
+			
+			
+			model.addAttribute("category",op.get());
+			return "AdminEditCategory";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("adminupdatecategory")
+	public String adminupdatecategory(CategoryEntity categoryEntity) {
+		
+		System.out.println("categoryEntity.getCategoryId( ====>"+categoryEntity.getCategoryId());//id? db? 
+
+		Optional<CategoryEntity> op = categoryRepository.findById(categoryEntity.getCategoryId());
+		
+		if(op.isPresent())
+		{
+			CategoryEntity dbCategory = op.get(); 
+			dbCategory.setCategoryName(categoryEntity.getCategoryName());
+			
+			
+			//
+			categoryRepository.save(dbCategory);
+		}
+		return "redirect:/adminlistcategory";
+	}
+	
+	
+	
+	@GetMapping("admindeletecategory")
+	public String admindeletecategory(Integer categoryId) {
+		
+		categoryRepository.deleteById(categoryId);
+		
+		System.out.println("Category successfully deleted!");
+		
+		return "redirect:/adminlistcategory";
+	}	
+
 	
 	
 	

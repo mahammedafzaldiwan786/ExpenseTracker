@@ -29,7 +29,7 @@ public class SessionController {
 	@Autowired
 	MailService mailService;
 	
-	@GetMapping(value = {"signup","newuser","/"})
+	@GetMapping(value = {"signup","adminnewuser","/"})
 	public String signup() {
 		return "Signup"; 
 	}

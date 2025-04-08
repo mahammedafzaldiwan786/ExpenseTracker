@@ -26,7 +26,7 @@ public class CityController {
 	StateRepository stateRepository;
 	
 	
-	@GetMapping("newcity")
+	@GetMapping("adminnewcity")
 	public String newcity(Model model) {
 		
 		
@@ -36,7 +36,7 @@ public class CityController {
 		return "NewCity";
 	}
 	
-	@PostMapping("savecity")
+	@PostMapping("adminsavecity")
 	public String savecity(CityEntity entityCity) {
 		
 		cityRepository.save(entityCity);
@@ -44,7 +44,7 @@ public class CityController {
 		return "redirect:/listcity";
 	}
 	
-	@GetMapping("listcity")
+	@GetMapping("adminlistcity")
 	public String listCity(Model model) {
 		
 		List<Object> allCity = cityRepository.getAll();
@@ -56,7 +56,7 @@ public class CityController {
 	
 	
 
-	@GetMapping("viewcity")
+	@GetMapping("adminviewcity")
 	public String viewcity(Integer cityId,Model model) {
 		
 		System.out.println("city ID : "+cityId);
@@ -75,7 +75,7 @@ public class CityController {
 	
 	
 
-	@GetMapping("editcity")
+	@GetMapping("admineditcity")
 	public String editcity(Integer cityId,Model model) {
 		
 		Optional<CityEntity> op = cityRepository.findById(cityId);
@@ -98,7 +98,7 @@ public class CityController {
 	//save -> entity -> id present -> not present in db -> insert 
 	//save -> entity -> id present -> present in db -> update  
 
-	@PostMapping("updatecity")
+	@PostMapping("adminupdatecity")
 	public String updatecity(CityEntity cityEntity) {
 		
 		System.out.println("cityEntity.getCityId()( ====>"+cityEntity.getCityId());//id? db? 
@@ -120,7 +120,7 @@ public class CityController {
 	
 	
 	
-	@GetMapping("deletecity")
+	@GetMapping("admindeletecity")
 	public String deletecity(Integer cityId) {
 		
 		cityRepository.deleteById(cityId);

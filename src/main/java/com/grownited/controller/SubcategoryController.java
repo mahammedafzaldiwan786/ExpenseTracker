@@ -129,7 +129,115 @@ public class SubcategoryController {
 		
 		return "redirect:/listsubcategory";
 	}	
+
 	
+//	---------------------------------------------------------------------------------------------------
+	
+	
+	@GetMapping("adminnewsubcategory")
+	public String adminnewsubcategory(Model model) {
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		return "AdminNewSubcategory";
+	}
+	
+	
+	@PostMapping("adminsavesubcategory")
+	public String adminsavesubcategory(HttpSession session,SubcategoryEntity subcategoryEntity){
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		subcategoryEntity.setUserId(userId);
+		
+		
+		
+		subcategoryRepository.save(subcategoryEntity);
+		
+		return "redirect:/adminlistsubcategory";
+	}
+	
+	
+	@GetMapping("adminlistsubcategory")
+	public String adminlistsubcategory(Model model) {
+		
+		List<Object[]> subcategoryList = subcategoryRepository.getAll();
+		
+		model.addAttribute("allsubcategoryt",subcategoryList);
+		
+		return "AdminListSubcategory";
+	}
+	
+	
+	@GetMapping("adminviewsubcategory")
+	public String adminviewsubcategory(Integer subcategoryId,Model model) {
+		
+	System.out.println("Subcategory ID : "+subcategoryId);
+		
+		List<Object[]> subcategory = subcategoryRepository.getBysubcategoryId(subcategoryId);
+		
+		
+		model.addAttribute("subcategory", subcategory);
+
+	
+		return "AdminViewSubcategory";
+	}
+	
+	
+	
+	@GetMapping("admineditsubcategory")
+	public String admineditsubcategory(Integer subcategoryId,Model model) {
+		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryId);
+		
+		List<CategoryEntity> categoryList =  categoryRepository.findAll();
+		
+		if (op.isEmpty()) {
+			return "redirect:/adminlistsubcategory";
+		} else {
+			
+			
+			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("subcategory",op.get());
+			return "AdminEditSubcategory";
+
+		}
+	}
+	//save -> entity -> no id present -> insert 
+	//save -> entity -> id present -> not present in db -> insert 
+	//save -> entity -> id present -> present in db -> update  
+
+	@PostMapping("adminupdatesubcategory")
+	public String adminupdatesubcategory(SubcategoryEntity subcategoryEntity) {
+		
+		System.out.println("getSubcategoryId ====>"+subcategoryEntity.getSubcategoryId());//id? db? 
+
+		Optional<SubcategoryEntity> op = subcategoryRepository.findById(subcategoryEntity.getSubcategoryId());
+		
+		if(op.isPresent())
+		{
+			SubcategoryEntity dbSubcategory = op.get(); 
+			dbSubcategory.setSubcategoryName(subcategoryEntity.getSubcategoryName());
+			dbSubcategory.setCategoryId(subcategoryEntity.getCategoryId());
+			
+			//
+			subcategoryRepository.save(dbSubcategory);
+		}
+		return "redirect:/adminlistsubcategory";
+	}
+	
+	
+	@GetMapping("admindeletesubcategory")
+	public String admindeletesubcategory(Integer subcategoryId) {
+		
+		subcategoryRepository.deleteById(subcategoryId);
+		
+		System.out.println("Subcategory successfully deleted!");
+		
+		return "redirect:/adminlistsubcategory";
+	}	
+
 	
 	
 	
