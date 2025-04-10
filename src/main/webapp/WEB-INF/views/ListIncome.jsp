@@ -13,6 +13,10 @@
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
+ <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+      <link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet" />
+
+
 </head>
 <body>
 
@@ -378,7 +382,21 @@
         </ul>
       </li>
       
- 
+ 		  <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+      
       
       
     
@@ -433,7 +451,7 @@
 			<h1>User Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="home">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Income</a></li>
 					<li class="breadcrumb-item active">List Income</li>
 				</ol>
 			</nav>
@@ -481,7 +499,7 @@
 													<td>${income.amount }</td>
 													<td>${income.transactionDate }</td>
 													<td>${income.description }</td>
-													<td><a href="viewincome?incomeId=${income.incomeId}" class="btn btn-primary">View</a>                      <a href="editincome?incomeId=${income.incomeId}" class="btn btn-success">Edit</a>                              <a href="deleteincome?incomeId=${income.incomeId}" class="btn btn-danger">Delete</a> </td>
+													<td><a href="viewincome?incomeId=${income.incomeId}" class="btn btn-primary">View</a>  <a href="editincome?incomeId=${income.incomeId}" class="btn btn-success">Edit</a>   <a href="deleteincome?incomeId=${income.incomeId}" class="btn btn-danger">Delete</a> </td>
 												</tr>
 											</c:forEach>
 										</tbody>

@@ -17,8 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.ExpenseRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -34,8 +37,58 @@ public class UserController {
 	
 	@Autowired
 	Cloudinary cloudinary;
+
+	/*
 	
+	@Autowired
+	ExpenseRepository expenseRepository;
+
+
 	
+	@GetMapping("home")
+	public String home(HttpSession session, Model model) {
+		
+		
+		
+		LocalDate today = LocalDate.now();
+		
+		int month = today.getMonthValue();
+		
+		int year = today.getYear();
+		
+//		System.out.println("year:===>"+year);
+		
+		
+		 Object TotalExpensesForToday = expenseRepository.getTotalExpensesForToday();
+		
+		Object TotalExpensesForThisMonth = expenseRepository.getTotalExpensesForThisMonth(month);	
+		
+		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(2024);
+		
+//		System.out.println(TotalExpensesForThisMonth);
+		
+		
+		model.addAttribute("TotalExpensesForThisMonth", TotalExpensesForThisMonth);
+		
+		model.addAttribute("TotalExpensesForThisYear", TotalExpensesForThisYear);
+		
+		model.addAttribute("TotalExpensesForToday", TotalExpensesForToday);
+		
+		
+	
+		
+//		System.out.println("TotalExpensesForToday======>"+TotalExpensesForToday);
+		
+		
+		
+		
+		
+		
+		
+		return "Home";
+	}
+	
+	*/
 	
 	
 	@PostMapping(value = {"saveuser","adminsaveuser"})
@@ -96,8 +149,9 @@ public class UserController {
 		
 		Optional<UserEntity> op = userRepository.findById(userId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// not found
+			System.out.println("User Session Not Found ! Please Login,and try again ");
 		} else {
 			// data found
 			 UserEntity user = op.get();
@@ -118,7 +172,7 @@ public class UserController {
 		Optional<UserEntity> op = userRepository.findById(userId);
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listuser";
 		} else {
 			

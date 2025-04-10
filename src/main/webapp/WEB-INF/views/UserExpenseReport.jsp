@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>AdminDashboard | Edit Expense</title>
+<title>Expense Tracker | Expense Report</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
+
+  <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+      <link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet" />
 
 
 </head>
@@ -246,36 +249,19 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
 	
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="admindashboard">
+        <a class="nav-link " href="home">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewuser">
-              <i class="bi bi-circle"></i><span>Add User</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminlistuser">
-              <i class="bi bi-circle"></i><span>List Users</span>
-            </a>
-          </li>
-
-        </ul>
-      </li><!-- End Components Nav -->
+     
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -283,12 +269,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewaccount">
+            <a href="newaccount">
               <i class="bi bi-circle"></i><span>Add Account</span>
             </a>
           </li>
           <li>
-            <a href="adminlistaccount">
+            <a href="listaccount">
               <i class="bi bi-circle"></i><span>List Accounts</span>
             </a>
           </li>
@@ -302,12 +288,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewcategory">
+            <a href="newcategory">
               <i class="bi bi-circle"></i><span>Add Category</span>
             </a>
           </li>
           <li>
-            <a href="adminlistcategory">
+            <a href="listcategory">
               <i class="bi bi-circle"></i><span>List Categories</span>
             </a>
           </li>
@@ -321,12 +307,12 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewsubcategory">
+            <a href="newsubcategory">
               <i class="bi bi-circle"></i><span>Add Subcategory</span>
             </a>
           </li>
           <li>
-            <a href="adminlistsubcategory">
+            <a href="listsubcategory">
               <i class="bi bi-circle"></i><span>List Subcategories</span>
             </a>
           </li>
@@ -340,12 +326,12 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewexpense">
+            <a href="newexpense">
               <i class="bi bi-circle"></i><span>Add Expense</span>
             </a>
           </li>
           <li>
-            <a href="adminlistexpense">
+            <a href="listexpense">
               <i class="bi bi-circle"></i><span>List Expenses</span>
             </a>
           </li>
@@ -363,12 +349,12 @@
         </a>
         <ul id="income-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewincome">
+            <a href="newincome">
               <i class="bi bi-circle"></i><span>Add Income</span>
             </a>
           </li>
           <li>
-            <a href="adminlistincome">
+            <a href="listincome">
               <i class="bi bi-circle"></i><span>List Income</span>
             </a>
           </li>
@@ -382,12 +368,12 @@
         </a>
         <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewvendor">
+            <a href="newvendor">
               <i class="bi bi-circle"></i><span>Add Vendor</span>
             </a>
           </li>
           <li>
-            <a href="adminlistvendor">
+            <a href="listvendor">
               <i class="bi bi-circle"></i><span>List Vendors</span>
             </a>
           </li>
@@ -395,68 +381,27 @@
         </ul>
       </li>
       
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#state-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>State</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="state-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewstate">
-              <i class="bi bi-circle"></i><span>Add State</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminliststate">
-              <i class="bi bi-circle"></i><span>List States</span>
-            </a>
-          </li>
-       
-        </ul>
-      </li>
       
       
-         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#city-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>City</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="city-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewcity">
-              <i class="bi bi-circle"></i><span>Add City</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminlistcity">
-              <i class="bi bi-circle"></i><span>List Cities</span>
-            </a>
-          </li>
-       
-        </ul>
-      </li>
-      
-      
-      
-      
-         <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminactiveusers">
-              <i class="bi bi-circle"></i><span>Active Users</span>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
             </a>
           </li>
          
+       
         </ul>
       </li>
       
+ 
       
       
-      
-      
-      
-      
+    
       
       
 		
@@ -497,181 +442,94 @@
         </a>
       </li><!-- End Login Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="errorpage">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
-    </ul>
+ 
 	
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Admin Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Expense</a></li>
-          <li class="breadcrumb-item active">Edit Expense</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-			<div class="card-body">
-              <h5 class="card-title"> Edit Expense</h5>
-
-              <!-- General Form Elements -->
-              <form action="adminupdateexpense" method="post" enctype="multipart/form-data">
-               	   <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="title">Expense Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control"  name="expenseName" value="${expense.expenseName}">
-                  </div>
-                </div>
-                
-                
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Category</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="categoryId">
-                      <option selected="">select category</option>
-                     	 <c:forEach items="${categoryList}" var="category">
-
-								<option value="${category.categoryId}">${category.categoryName }</option>
-			
-						</c:forEach>
-
-                    </select>
-                  </div>
-                </div>
-                
-                
-                
-                
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Subcategory</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="subcategoryId">
-                      <option selected="">select subcategory</option>
-                     	 <c:forEach items="${subcategoryList}" var="subcategory">
-
-								<option value="${subcategory.subcategoryId}">${subcategory.subcategoryName }</option>
-			
-						</c:forEach>
-
-                    </select>
-                  </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="amount">Amount</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control"  name="amount" value="${expense.amount}">
-                  </div>
-                </div>
-                
-                
-                
-                  <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Account</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="accountId">
-                      <option selected="">select account</option>
-                     	 <c:forEach items="${accountList}" var="account">
-
-								<option value="${account.accountId}">${account.accountName }</option>
-			
-						</c:forEach>
-
-                    </select>
-                  </div>
-                </div>
-                
-                
-                
-                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="description">Picture of Bill</label>
-                  <div class="col-sm-10">
-                    <input type="file" class="form-control" name="billPic">
-                  </div>
-                </div>
-                
-                
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="description">Description</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description" value="${expense.description}">
-                  </div>
-                </div>
-             
-               
-               
-                <div class="row mb-3">
-                  <label for="inputDate" class="col-sm-2 col-form-label">Transaction Date</label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" name="transactionDate" value="${expense.transactionDate}">
-                  </div>
-                </div>
-                
-                
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Vendor</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="vendorId">
-                      <option selected="">select vandor</option>
-                     	 <c:forEach items="${vendorList}" var="vendor">
-
-								<option value="${vendor.vendorId}">${vendor.vendorName }</option>
-			
-						</c:forEach>
-
-                    </select>
-                  </div>
-                </div>
-                
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label" name="status">Status</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="status" value="${expense.status}"> 
-                  </div>
-                </div>
-                
-                
-                    <input type="hidden" name="expenseId"  value="${expense.expenseId}"/>
-                
-	
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Edit Expense</button>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
-
-            </div>
-
-			
-
-
-
     
+		<div class="pagetitle">
+			<h1>User Dashboard</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="home">Reports</a></li>
+					<li class="breadcrumb-item active">Expense Report</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+		
+		
+		
+			
+		<section class="section dashboard">
+			<div class="row" style="min-height: 500px;">
+
+				<!-- Left side columns -->
+				<div class="col-lg-12">
+					<div class="row">
+						<!-- Reports -->
+						<div class="col-12">
+							<div class="card">
+
+
+								<div class="card-body">
+									<h5 class="card-title">
+										Expenses<span>/all</span>
+									</h5>
+
+
+									<table class="table datatable datatable-table table-hover" id="myTable">
+										<thead>
+											<tr>
+												<th>Expense Name</th>
+												<th>Status</th>
+												<th>Amount</th>
+										
+												<th>Transaction Date</th>
+									 			<th>Description</th>   
+												
+											</tr>
+										</thead>
+
+										<tbody>
+											
+											<c:forEach items="${expenseList}" var="expense">
+			
+												<tr>
+													<td>${expense.expenseName }</td>
+													<td>${expense.status }</td>
+													<td>${expense.amount }</td>
+
+													<td>${expense.transactionDate }</td>
+													<td>${expense.description }</td>        
+
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+
+
+
+								</div>
+
+							</div>
+						</div>
+						<!-- End Reports -->
+
+					</div>
+				</div>
+				<!-- End Left side columns -->
+
+				<!-- Right side columns -->
+				<!-- End Right side columns -->
+
+			</div>
+		</section>
+
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -697,18 +555,44 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+
 	
+
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ 
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
 	<script type="text/javascript">
-
-	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
-	</script>
-
+ 
+ 	$( document ).ready(function() {
+ 		//let table = new DataTable('#myTable');
+ 	
+ 		new DataTable('#myTable', {
+ 	 	    layout: {
+ 	 	        topStart: {
+ 	 	            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+ 	 	        }
+ 	 	    }
+ 	 	});
+ 	
+ 	});
+ 	
+ 	
+ 	</script>
+	
 </body>
 </html>

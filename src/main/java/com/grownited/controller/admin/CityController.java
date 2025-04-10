@@ -83,7 +83,7 @@ public class CityController {
 		List<StateEntity> stateList =  stateRepository.findAll();
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcity";
 		} else {
 			

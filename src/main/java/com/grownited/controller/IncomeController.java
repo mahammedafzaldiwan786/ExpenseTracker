@@ -96,7 +96,7 @@ public class IncomeController {
 		
 		List<AccountEntity> accountList =  accountRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listincome";
 		} else {
 			
@@ -226,7 +226,7 @@ public class IncomeController {
 		
 		List<AccountEntity> accountList =  accountRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistincome";
 		} else {
 			

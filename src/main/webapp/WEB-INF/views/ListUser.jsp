@@ -13,6 +13,10 @@
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
+ <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+      <link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet" />
+
+
 </head>
 <body>
 
@@ -231,7 +235,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -435,6 +439,35 @@
       </li>
       
       
+      
+         <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="adminactiveusers">
+              <i class="bi bi-circle"></i><span>Active Users</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 		
       <li class="nav-heading">Pages</li>
 
@@ -497,7 +530,7 @@
       <h1>Admin Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.html">User</a></li>
           <li class="breadcrumb-item active"> List User</li>
         </ol>
       </nav>

@@ -85,7 +85,7 @@ public class SubcategoryController {
 		
 		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listsubcategory";
 		} else {
 			
@@ -193,7 +193,7 @@ public class SubcategoryController {
 		
 		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistsubcategory";
 		} else {
 			

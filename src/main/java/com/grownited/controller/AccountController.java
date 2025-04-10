@@ -77,7 +77,7 @@ public class AccountController {
 		
 //		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listaccount";
 		} else {
 			
@@ -186,7 +186,7 @@ public class AccountController {
 		
 //		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistaccount";
 		} else {
 			

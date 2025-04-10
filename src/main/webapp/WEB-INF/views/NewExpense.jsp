@@ -13,6 +13,11 @@
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
+
+
 </head>
 <body>
 
@@ -379,6 +384,20 @@
       </li>
       
  
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
       
       
     
@@ -433,7 +452,7 @@
 			<h1>User Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="home">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Expense</a></li>
 					<li class="breadcrumb-item active">New Expense</li>
 				</ol>
 			</nav>
@@ -455,11 +474,14 @@
                 </div>
                 
                 
+           
+                
+                
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Select Category</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="categoryId">
-                      <option selected="">select category</option>
+                    <select class="form-select" aria-label="Default select example" name="categoryId"  id="category" onchange="getSubCategory()">
+                      <option value="-1">Select Category</option>
                      	 <c:forEach items="${categoryList}" var="category">
 
 								<option value="${category.categoryId}">${category.categoryName }</option>
@@ -474,15 +496,17 @@
                 
                 
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select Subcategory</label>
+                  <label class="col-sm-2 col-form-label"  for="subCategory"  >Select Subcategory</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="subcategoryId">
-                      <option selected="">select subcategory</option>
-                     	 <c:forEach items="${subcategoryList}" var="subcategory">
+                    <select class="form-select" aria-label="Default select example" name="subcategoryId" id="subCategory" >
+                      <option value="-1">Select SubCategory</option>
+                     
+                     
+                     <!--	 <c:forEach items="${subcategoryList}" var="subcategory">
 
 								<option value="${subcategory.subcategoryId}">${subcategory.subcategoryName }</option>
 			
-						</c:forEach>
+						</c:forEach>	-->
 
                     </select>
                   </div>
@@ -615,12 +639,37 @@
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
 
-	<script type="text/javascript">
+	
+ <script type="text/javascript">
 
-	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
-	</script>
+	function getSubCategory(){
+		console.log("category Change");
+		let categoryId = document.getElementById("category").value;
+		console.log(categoryId);	
+		//url -> json REST 
+		
+		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#subCategory').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#subCategory').append('<option value="' + data[i].subcategoryId + '">' + data[i].subcategoryName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
+
 	
 </body>
 </html>

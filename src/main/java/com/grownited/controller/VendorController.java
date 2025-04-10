@@ -82,7 +82,7 @@ public class VendorController {
 		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listvendor";
 		} else {
 			
@@ -199,7 +199,7 @@ public class VendorController {
 		Optional<VendorEntity> op = vendorRepository.findById(vendorId);
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistvendor";
 		} else {
 			

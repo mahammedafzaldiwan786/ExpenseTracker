@@ -378,7 +378,133 @@
         </ul>
       </li>
       
- 
+ 		  <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="userexpensereport">
+              <i class="bi bi-circle"></i><span>Expense Report</span>
+            </a>
+          </li>
+         
+       
+        </ul>
+      </li>
+      
       
       
     
@@ -433,7 +559,7 @@
 			<h1>User Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="home">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Expense</a></li>
 					<li class="breadcrumb-item active">View Expense</li>
 				</ol>
 			</nav>
@@ -453,12 +579,19 @@
                 <li class="list-group-item">User : ${expense[0][12]}</li>
                 <li class="list-group-item">Transaction Date : ${expense[0][7]}</li>
                 <li class="list-group-item">Status : ${expense[0][5]}</li>
-                <li class="list-group-item">Picture of Bill : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="${expense[0][11]}"  height="200px" width="200px"/></li>
                  <li class="list-group-item">Category : ${expense[0][14]}</li>
                  <li class="list-group-item">Subcategory : ${expense[0][15] }</li>
                  <li class="list-group-item">Account : ${expense[0][13] }</li>
                  <li class="list-group-item">Vendor : ${expense[0][16] }</li>
                  
+                <li class="list-group-item">Picture of Bill : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="${expense[0][11]}"  height="200px" width="200px"/>
+                
+                       <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         <a href="checkout" class="btn btn-success">Check Out</a>
+                </li>
+                
+                
+                
+
                  
                  
               </ul><!-- End Default List group -->

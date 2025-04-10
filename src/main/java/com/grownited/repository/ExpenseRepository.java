@@ -16,5 +16,17 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Integer>
 	List<Object[]> getByexpenseId(Integer expenseId);
 	
 	
+	@Query(value = "select sum(amount) as total_expense from expenses where  month(transaction_date) =  :month", nativeQuery = true)
+	Object getTotalExpensesForThisMonth(Integer month);
 	
+	@Query(value = "select sum(amount) as total_expense from expenses where  year(transaction_date) =  :year", nativeQuery = true)
+	Object getTotalExpensesForThisYear(Integer year);
+	
+	@Query(value = "select sum(amount) as total_expense from expenses where  transaction_date = curdate()", nativeQuery = true)
+	Object getTotalExpensesForToday();
+	
+	
+//
+//	@Query(value = "select sum(amount) as total_expense from expenses where user_id = 35 and month(transaction_date) =  :month", nativeQuery = true)
+//	Object getTotalExpensesForThisMonth(Integer month);
 }

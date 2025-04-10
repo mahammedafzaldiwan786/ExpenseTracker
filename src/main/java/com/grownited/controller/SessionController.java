@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.ExpenseRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
 
@@ -28,6 +30,11 @@ public class SessionController {
 	
 	@Autowired
 	MailService mailService;
+	
+	
+	@Autowired
+	ExpenseRepository expenseRepository;
+	
 	
 	@GetMapping(value = {"signup","adminnewuser","/"})
 	public String signup() {
@@ -84,7 +91,27 @@ public class SessionController {
 	}
 	
 	@GetMapping("home")
-	public String home() {
+	public String home(HttpSession session, Model model) {
+		
+     LocalDate today = LocalDate.now();
+		
+		int month = today.getMonthValue();
+		
+		int year = today.getYear();
+		
+		 Object TotalExpensesForToday = expenseRepository.getTotalExpensesForToday();
+		
+		Object TotalExpensesForThisMonth = expenseRepository.getTotalExpensesForThisMonth(month);	
+		
+		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(2024);
+		
+		
+		model.addAttribute("TotalExpensesForThisMonth", TotalExpensesForThisMonth);
+		
+		model.addAttribute("TotalExpensesForThisYear", TotalExpensesForThisYear);
+		
+		model.addAttribute("TotalExpensesForToday", TotalExpensesForToday);
+		
 		
 		return "Home";
 	}
@@ -98,7 +125,7 @@ public class SessionController {
 		public String sendOtp(String email, Model model) {
 			// email valid
 			Optional<UserEntity> op = userRepository.findByEmail(email);
-			if (op.isEmpty()) {
+			if (!op.isPresent()) {
 				// email invalid
 				model.addAttribute("error", "Email not found");
 				return "ForgetPassword";
@@ -122,7 +149,7 @@ public class SessionController {
 		@PostMapping("updatepassword")
 		public String updatePassword(String email, String password, String otp, Model model) {
 			Optional<UserEntity> op = userRepository.findByEmail(email);
-			if (op.isEmpty()) {
+			if (!op.isPresent()) {
 				model.addAttribute("error", "Invalid Data");
 				return "ChangePassword";
 			} else {

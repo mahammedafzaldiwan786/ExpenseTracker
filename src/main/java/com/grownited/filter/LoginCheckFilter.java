@@ -61,8 +61,21 @@ public class LoginCheckFilter implements Filter {
 			}else {
 				
 
-				System.out.println("Filter Call....." + uri);
-				chain.doFilter(request, response);//go ahead 
+				if (uri.startsWith("/admin")) {
+					if (user.getRole().equals("ADMIN")) {
+						chain.doFilter(request, response);// go Ahead
+					}else {
+						request.getRequestDispatcher("login").forward(request, response);
+					}
+				} else {
+					chain.doFilter(request, response);// go Ahead
+				}
+				
+				
+				
+//				
+//				System.out.println("Filter Call....." + uri);
+//				chain.doFilter(request, response);//go ahead 
 			}
 		}
 

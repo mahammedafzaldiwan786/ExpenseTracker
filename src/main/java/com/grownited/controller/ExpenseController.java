@@ -169,7 +169,7 @@ public class ExpenseController {
 		
 //		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listexpense";
 		} else {
 			
@@ -355,7 +355,7 @@ public class ExpenseController {
 		
 //		List<CategoryEntity> categoryList =  categoryRepository.findAll();
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistexpense";
 		} else {
 			

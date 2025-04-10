@@ -80,7 +80,7 @@ public class CategoryController {
 		Optional<CategoryEntity> op = categoryRepository.findById(categoryId);
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcategory";
 		} else {
 			
@@ -188,7 +188,7 @@ public class CategoryController {
 		Optional<CategoryEntity> op = categoryRepository.findById(categoryId);
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/adminlistcategory";
 		} else {
 			

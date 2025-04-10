@@ -79,7 +79,7 @@ public class StateController {
 		
 		
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/liststate";
 		} else {
 		
