@@ -8,15 +8,18 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>AdminDashboard | View Expense</title>
+<title>AdminDashboard | List Expense</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
+ <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+      <link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet" />
+
 </head>
 <body>
 
-   <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
 <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center header-scrolled">
 
@@ -514,42 +517,82 @@
 	
   </aside><!-- End Sidebar-->
 
+
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Admin Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Expense</a></li>
-          <li class="breadcrumb-item active">View Expense</li>
+          <li class="breadcrumb-item"><a href="index.html">Reports</a></li>
+          <li class="breadcrumb-item active">Expense Report</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-			<div class="card-body">
-              <h5 class="card-title">View Expense</h5>
+		<section class="section dashboard">
+			<div class="row" style="min-height: 500px;">
 
-              <!-- Default List group -->
-              <ul class="list-group">
-                <li class="list-group-item">Expense Name : ${expense[0][10] }</li>
-                <li class="list-group-item">Amount : ${expense[0][2]}</li>
-                <li class="list-group-item">Description : ${expense[0][4]}</li>
-                <li class="list-group-item">User : ${expense[0][12]}</li>
-                <li class="list-group-item">Transaction Date : ${expense[0][7]}</li>
-                <li class="list-group-item">Status : ${expense[0][5]}</li>
-                 <li class="list-group-item">Category : ${expense[0][14]}</li>
-                 <li class="list-group-item">Subcategory : ${expense[0][15] }</li>
-                 <li class="list-group-item">Account : ${expense[0][13] }</li>
-                 <li class="list-group-item">Vendor : ${expense[0][16] }</li>
-                 
-                <li class="list-group-item">Picture of Bill : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="${expense[0][11]}"  height="200px" width="200px"/></li>
-                 
-                 
-              </ul><!-- End Default List group -->
+				<!-- Left side columns -->
+				<div class="col-lg-12">
+					<div class="row">
+						<!-- Reports -->
+						<div class="col-12">
+							<div class="card">
 
-            </div>
+
+								<div class="card-body">
+									<h5 class="card-title">
+										Expenses<span>/all</span>
+									</h5>
+
+
+									<table class="table datatable datatable-table table-hover" id="myTable">
+										<thead>
+											<tr>
+												<th>Expense Name</th>
+												<th>Status</th>
+												<th>Amount</th>
+												<th>Transaction Date</th>
+											<th>Description</th> 
+											</tr>
+										</thead>
+
+										<tbody>
+											
+											<c:forEach items="${expenseList}" var="expense">
 			
-			
+												<tr>
+													<td>${expense.expenseName }</td>
+													<td>${expense.status }</td>
+													<td>${expense.amount }</td>
+													
+													<td>${expense.transactionDate }</td>
+									  				<td>${expense.description }</td>       
+
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+
+
+
+								</div>
+
+							</div>
+						</div>
+						<!-- End Reports -->
+
+					</div>
+				</div>
+				<!-- End Left side columns -->
+
+				<!-- Right side columns -->
+				<!-- End Right side columns -->
+
+			</div>
+		</section>
 
 
 			
@@ -587,13 +630,32 @@
 
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+ 	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
+	
 
-	<script type="text/javascript">
-
-	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
-	</script>
+<script type="text/javascript">
+ 
+ 	$( document ).ready(function() {
+ 		//let table = new DataTable('#myTable');
+ 	
+ 		new DataTable('#myTable', {
+ 	 	    layout: {
+ 	 	        topStart: {
+ 	 	            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+ 	 	        }
+ 	 	    }
+ 	 	});
+ 	
+ 	});
+ 	
+ 	
+ 	</script>
 
 </body>
 </html>

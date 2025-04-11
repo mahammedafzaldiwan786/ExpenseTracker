@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  <!-- ======= Header ======= -->
+   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center header-scrolled">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -64,8 +64,8 @@
             <li class="notification-item">
               <i class="bi bi-exclamation-circle text-warning"></i>
               <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
+                <h4>Expense Tracker</h4>
+                <p>Over Budgeting</p>
                 <p>30 min. ago</p>
               </div>
             </li>
@@ -77,8 +77,8 @@
             <li class="notification-item">
               <i class="bi bi-x-circle text-danger"></i>
               <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
+                <h4>Budget Alert</h4>
+                <p>Monthly Budget limit</p>
                 <p>1 hr. ago</p>
               </div>
             </li>
@@ -90,8 +90,8 @@
             <li class="notification-item">
               <i class="bi bi-check-circle text-success"></i>
               <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
+                <h4>Today Expenses</h4>
+                <p>Today expense 440 $</p>
                 <p>2 hrs. ago</p>
               </div>
             </li>
@@ -103,8 +103,8 @@
             <li class="notification-item">
               <i class="bi bi-info-circle text-primary"></i>
               <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
+                <h4>Activity Alert</h4>
+                <p>New Category Added</p>
                 <p>4 hrs. ago</p>
               </div>
             </li>
@@ -141,7 +141,7 @@
                 <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>hi...</p>
                   <p>4 hrs. ago</p>
                 </div>
               </a>
@@ -155,7 +155,7 @@
                 <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>where you will go for vacation...</p>
                   <p>6 hrs. ago</p>
                 </div>
               </a>
@@ -169,7 +169,7 @@
                 <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>Emergency Money needed...</p>
                   <p>8 hrs. ago</p>
                 </div>
               </a>
@@ -203,7 +203,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="userprofile">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -213,7 +213,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -223,7 +223,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-question-circle"></i>
                 <span>Need Help?</span>
               </a>
@@ -380,8 +380,9 @@
         </ul>
       </li>
       
- 
-        <li class="nav-item">
+      
+      
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -396,6 +397,8 @@
         </ul>
       </li>
       
+ 
+      
       
     
       
@@ -404,21 +407,21 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="userprofile">
           <i class="bi bi-person-vcard"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -438,7 +441,21 @@
         </a>
       </li><!-- End Login Page Nav -->
 
- 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="errorpage">
+          <i class="bi bi-dash-circle"></i>
+          <span>Error 404</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-file-earmark"></i>
+          <span>Blank</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
+
+    </ul>
 	
   </aside><!-- End Sidebar-->
 

@@ -40,6 +40,7 @@ public class LoginCheckFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 
 		String url = req.getRequestURL().toString();
+		
 		String uri = req.getRequestURI();
 //
 //		System.out.println("Filter Call....." + uri);

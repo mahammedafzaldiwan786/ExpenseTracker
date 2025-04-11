@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>AdminDashboard | View Expense</title>
+<title>AdminDashboard | Admin Profile]</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -513,50 +513,42 @@
     </ul>
 	
   </aside><!-- End Sidebar-->
-
+  
+  
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Admin Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Expense</a></li>
-          <li class="breadcrumb-item active">View Expense</li>
+          <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+          <li class="breadcrumb-item active">Admin Profile</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
+
+		
 			<div class="card-body">
-              <h5 class="card-title">View Expense</h5>
+              <h5 class="card-title">Admin Profile</h5>
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Expense Name : ${expense[0][10] }</li>
-                <li class="list-group-item">Amount : ${expense[0][2]}</li>
-                <li class="list-group-item">Description : ${expense[0][4]}</li>
-                <li class="list-group-item">User : ${expense[0][12]}</li>
-                <li class="list-group-item">Transaction Date : ${expense[0][7]}</li>
-                <li class="list-group-item">Status : ${expense[0][5]}</li>
-                 <li class="list-group-item">Category : ${expense[0][14]}</li>
-                 <li class="list-group-item">Subcategory : ${expense[0][15] }</li>
-                 <li class="list-group-item">Account : ${expense[0][13] }</li>
-                 <li class="list-group-item">Vendor : ${expense[0][16] }</li>
-                 
-                <li class="list-group-item">Picture of Bill : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="${expense[0][11]}"  height="200px" width="200px"/></li>
-                 
-                 
+          	    <li class="list-group-item">Profile Picture : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${user.profilePicPath}"  height="200px" width="200px"/></li> 
+                <li class="list-group-item">First Name : ${user.firstName }</li>
+                <li class="list-group-item">Last Name : ${user.lastName }</li>
+                <li class="list-group-item">Email : ${user.email }</li>
+                <li class="list-group-item">Contact No. : ${user.contactNum }</li>
+                <li class="list-group-item">Date of Birth : ${user.dateOfBirth }</li>
+                <li class="list-group-item">Gender : ${user.gender }</li>
+                <li class="list-group-item">City : ${user.city }</li>
+                <li class="list-group-item">State : ${user.state }</li>    
               </ul><!-- End Default List group -->
 
             </div>
 			
-			
-
 
 			
-
-
-
-    
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -582,18 +574,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
-
-	<script type="text/javascript">
-
-	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
-	</script>
 
 </body>
 </html>

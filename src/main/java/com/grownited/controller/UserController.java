@@ -17,11 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
-import com.grownited.repository.ExpenseRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
-
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -237,4 +234,16 @@ public class UserController {
 		
 		return "redirect:/listuser";
 	}
+	
+	
+	@GetMapping("userprofile")
+	public String userprofile() {
+		
+		
+		
+		
+		return "UserProfile";
+	}
+	
+	
 }

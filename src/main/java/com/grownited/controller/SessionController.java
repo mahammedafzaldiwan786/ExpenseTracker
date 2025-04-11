@@ -103,7 +103,7 @@ public class SessionController {
 		
 		Object TotalExpensesForThisMonth = expenseRepository.getTotalExpensesForThisMonth(month);	
 		
-		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(2024);
+		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(year);
 		
 		
 		model.addAttribute("TotalExpensesForThisMonth", TotalExpensesForThisMonth);

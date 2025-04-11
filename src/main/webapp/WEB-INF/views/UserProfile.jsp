@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>AdminDashboard | View Expense</title>
+<title>Expense Tracker | User Profile</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -17,7 +17,6 @@
 <body>
 
    <!-- ======= Header ======= -->
-<!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center header-scrolled">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -253,30 +252,13 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="admindashboard">
+        <a class="nav-link " href="home">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewuser">
-              <i class="bi bi-circle"></i><span>Add User</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminlistuser">
-              <i class="bi bi-circle"></i><span>List Users</span>
-            </a>
-          </li>
-
-        </ul>
-      </li><!-- End Components Nav -->
+     
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -284,12 +266,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewaccount">
+            <a href="newaccount">
               <i class="bi bi-circle"></i><span>Add Account</span>
             </a>
           </li>
           <li>
-            <a href="adminlistaccount">
+            <a href="listaccount">
               <i class="bi bi-circle"></i><span>List Accounts</span>
             </a>
           </li>
@@ -303,12 +285,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewcategory">
+            <a href="newcategory">
               <i class="bi bi-circle"></i><span>Add Category</span>
             </a>
           </li>
           <li>
-            <a href="adminlistcategory">
+            <a href="listcategory">
               <i class="bi bi-circle"></i><span>List Categories</span>
             </a>
           </li>
@@ -322,12 +304,12 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewsubcategory">
+            <a href="newsubcategory">
               <i class="bi bi-circle"></i><span>Add Subcategory</span>
             </a>
           </li>
           <li>
-            <a href="adminlistsubcategory">
+            <a href="listsubcategory">
               <i class="bi bi-circle"></i><span>List Subcategories</span>
             </a>
           </li>
@@ -341,12 +323,12 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewexpense">
+            <a href="newexpense">
               <i class="bi bi-circle"></i><span>Add Expense</span>
             </a>
           </li>
           <li>
-            <a href="adminlistexpense">
+            <a href="listexpense">
               <i class="bi bi-circle"></i><span>List Expenses</span>
             </a>
           </li>
@@ -364,12 +346,12 @@
         </a>
         <ul id="income-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewincome">
+            <a href="newincome">
               <i class="bi bi-circle"></i><span>Add Income</span>
             </a>
           </li>
           <li>
-            <a href="adminlistincome">
+            <a href="listincome">
               <i class="bi bi-circle"></i><span>List Income</span>
             </a>
           </li>
@@ -383,12 +365,12 @@
         </a>
         <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminnewvendor">
+            <a href="newvendor">
               <i class="bi bi-circle"></i><span>Add Vendor</span>
             </a>
           </li>
           <li>
-            <a href="adminlistvendor">
+            <a href="listvendor">
               <i class="bi bi-circle"></i><span>List Vendors</span>
             </a>
           </li>
@@ -396,73 +378,34 @@
         </ul>
       </li>
       
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#state-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>State</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="state-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewstate">
-              <i class="bi bi-circle"></i><span>Add State</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminliststate">
-              <i class="bi bi-circle"></i><span>List States</span>
-            </a>
-          </li>
-       
-        </ul>
-      </li>
       
       
-         <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#city-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>City</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="city-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="adminnewcity">
-              <i class="bi bi-circle"></i><span>Add City</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminlistcity">
-              <i class="bi bi-circle"></i><span>List Cities</span>
-            </a>
-          </li>
-       
-        </ul>
-      </li>
-      
-      
-      
-         <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-people"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="adminactiveusers">
-              <i class="bi bi-circle"></i><span>Active Users</span>
-            </a>
-          </li>
-          
-            <li>
-            <a href="adminexpensereport">
+            <a href="userexpensereport">
               <i class="bi bi-circle"></i><span>Expense Report</span>
             </a>
           </li>
+         
        
         </ul>
       </li>
+      
+ 
+      
+      
+    
       
       
 		
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="adminprofile">
+        <a class="nav-link collapsed" href="userprofile">
           <i class="bi bi-person-vcard"></i>
           <span>Profile</span>
         </a>
@@ -516,35 +459,35 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Admin Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Expense</a></li>
-          <li class="breadcrumb-item active">View Expense</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
+    
+		<div class="pagetitle">
+			<h1>User Dashboard</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="home">User</a></li>
+					<li class="breadcrumb-item active">User Profile</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+		
+		
+		
+			
 			<div class="card-body">
-              <h5 class="card-title">View Expense</h5>
+              <h5 class="card-title">User Profile</h5>
 
               <!-- Default List group -->
               <ul class="list-group">
-                <li class="list-group-item">Expense Name : ${expense[0][10] }</li>
-                <li class="list-group-item">Amount : ${expense[0][2]}</li>
-                <li class="list-group-item">Description : ${expense[0][4]}</li>
-                <li class="list-group-item">User : ${expense[0][12]}</li>
-                <li class="list-group-item">Transaction Date : ${expense[0][7]}</li>
-                <li class="list-group-item">Status : ${expense[0][5]}</li>
-                 <li class="list-group-item">Category : ${expense[0][14]}</li>
-                 <li class="list-group-item">Subcategory : ${expense[0][15] }</li>
-                 <li class="list-group-item">Account : ${expense[0][13] }</li>
-                 <li class="list-group-item">Vendor : ${expense[0][16] }</li>
-                 
-                <li class="list-group-item">Picture of Bill : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="${expense[0][11]}"  height="200px" width="200px"/></li>
-                 
-                 
+          	    <li class="list-group-item">Profile Picture : <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${user.profilePicPath}"  height="200px" width="200px"/></li> 
+                <li class="list-group-item">First Name : ${user.firstName }</li>
+                <li class="list-group-item">Last Name : ${user.lastName }</li>
+                <li class="list-group-item">Email : ${user.email }</li>
+                <li class="list-group-item">Contact No. : ${user.contactNum }</li>
+                <li class="list-group-item">Date of Birth : ${user.dateOfBirth }</li>
+                <li class="list-group-item">Gender : ${user.gender }</li>
+                <li class="list-group-item">City : ${user.city }</li>
+                <li class="list-group-item">State : ${user.state }</li>    
               </ul><!-- End Default List group -->
 
             </div>
@@ -552,11 +495,6 @@
 			
 
 
-			
-
-
-
-    
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -582,7 +520,9 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+
 	
+
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
@@ -594,6 +534,6 @@
 		let table = new DataTable('#myTable');
 	});
 	</script>
-
+	
 </body>
 </html>
