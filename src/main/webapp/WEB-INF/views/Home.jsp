@@ -588,7 +588,7 @@
             <div class="col-12">
               <div class="card">
 
-                <div class="filter">
+             <!--   <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -599,10 +599,10 @@
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div>	-->
 
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Reports <span>		<!-- /Today		--></span></h5>
 
                   <!-- Line Chart -->
                   <div id="reportsChart" class="apexcharts-tooltip-active" style="min-height: 365px;"><div id="apexchartsy9jdtlp4" class="apexcharts-canvas apexchartsy9jdtlp4 apexcharts-theme-" style="width: 613px; height: 350px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg apexcharts-zoomable" xmlns:data="ApexChartsNS" transform="translate(0, 0)" width="613" height="350"><foreignObject x="0" y="0" width="613" height="350"><div class="apexcharts-legend apexcharts-align-center apx-legend-position-bottom" xmlns="http://www.w3.org/1999/xhtml" style="right: 0px; position: absolute; left: 0px; top: 325px; max-height: 175px;"><div class="apexcharts-legend-series" rel="1" seriesname="Sales" data:collapsed="false" style="margin: 4px 5px;"><span class="apexcharts-legend-marker" rel="1" data:collapsed="false" style="height: 16px; width: 16px; left: 0px; top: 0px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%"><path d="M 0, 0 
@@ -715,13 +715,13 @@
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Expense',
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data:  [${TotalExpenseOfAllDay[0][1]}, ${TotalExpenseOfAllDay[1][1]}, ${TotalExpenseOfAllDay[2][1]}, ${TotalExpenseOfAllDay[3][1]}, ${TotalExpenseOfAllDay[4][1]}, ${TotalExpenseOfAllDay[5][1]}, ${TotalExpenseOfAllDay[6][1]}],
                         }, {
                           name: 'Income',
-                          data: [11, 32, 45, 32, 34, 52, 41]
+                          data: [${IncomeOfAllDays[0][1]}, ${IncomeOfAllDays[1][1]}, ${IncomeOfAllDays[2][1]}, ${IncomeOfAllDays[3][1]}, ${IncomeOfAllDays[4][1]}, ${IncomeOfAllDays[5][1]}, ${IncomeOfAllDays[6][1]}]
                         }, {
                           name: 'Budget',
-                          data: [15, 11, 32, 18, 9, 24, 11]
+                          data: [1500, 1100, 3200, 1800, 9000, 2400, 1100]
                         }],
                         chart: {
                           height: 350,
@@ -768,6 +768,57 @@
 
               </div>
             </div><!-- End Reports -->
+            
+            
+            <!-- Bar Chart -->
+                  <div class="card-body">
+              <h5 class="card-title">Bar CHart</h5>
+
+             
+
+            </div>
+              <canvas id="barChart" style="max-height: 400px; display: block; box-sizing: border-box; height: 221px; width: 443px;" width="443" height="221"></canvas>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new Chart(document.querySelector('#barChart'), {
+                    type: 'bar',
+                    data: {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                      datasets: [{
+                        label: 'Bar Chart',
+                        data: [${TotalExpenseOfAllMonth[0][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[2][2]}, ${TotalExpenseOfAllMonth[3][2]}, ${TotalExpenseOfAllMonth[4][2]}, ${TotalExpenseOfAllMonth[5][2]}],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                          'rgba(255, 205, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(255, 159, 64)',
+                          'rgb(255, 205, 86)',
+                          'rgb(75, 192, 192)',
+                          'rgb(54, 162, 235)',
+                          'rgb(153, 102, 255)',
+                          'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {
+                      scales: {
+                        y: {
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  });
+                });
+              </script>
+              <!-- End Bar CHart -->
 
            
           </div>
@@ -777,7 +828,7 @@
         <div class="col-lg-4">
 
         
-            <div class="filter">
+        <!--    <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
@@ -788,12 +839,14 @@
                 <li><a class="dropdown-item" href="#">This Month</a></li>
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
-            </div>
+            </div>	-->
 
 
-          <!-- Budget Report -->
+                 <!-- Budget Report -->
           <div class="card">
-            <div class="filter">
+          
+          
+          <!--  <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
@@ -804,10 +857,10 @@
                 <li><a class="dropdown-item" href="#">This Month</a></li>
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
-            </div>
+            </div>	-->
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+              <h5 class="card-title">Budget Report <span>	<!--	| This Month		--></span></h5>
 
               <div id="budgetChart" style="min-height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" class="echart" _echarts_instance_="ec_1743573945640"><div style="position: relative; width: 274px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="274" height="400" style="position: absolute; left: 0px; top: 0px; width: 274px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
 
@@ -864,7 +917,6 @@
 
             </div>
           </div><!-- End Budget Report -->
-
 
 
       </div>

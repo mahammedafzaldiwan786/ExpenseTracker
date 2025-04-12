@@ -17,14 +17,24 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.ExpenseRepository;
+import com.grownited.repository.IncomeRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	ExpenseRepository expenseRepository;
+	
+	@Autowired
+	IncomeRepository incomeRepository;
 	
 	@Autowired
 	MailService mailService;
@@ -35,34 +45,20 @@ public class UserController {
 	@Autowired
 	Cloudinary cloudinary;
 
-	/*
-	
-	@Autowired
-	ExpenseRepository expenseRepository;
-
-
-	
 	@GetMapping("home")
 	public String home(HttpSession session, Model model) {
 		
-		
-		
-		LocalDate today = LocalDate.now();
+     LocalDate today = LocalDate.now();
 		
 		int month = today.getMonthValue();
 		
 		int year = today.getYear();
 		
-//		System.out.println("year:===>"+year);
-		
-		
 		 Object TotalExpensesForToday = expenseRepository.getTotalExpensesForToday();
 		
 		Object TotalExpensesForThisMonth = expenseRepository.getTotalExpensesForThisMonth(month);	
 		
-		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(2024);
-		
-//		System.out.println(TotalExpensesForThisMonth);
+		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(year);
 		
 		
 		model.addAttribute("TotalExpensesForThisMonth", TotalExpensesForThisMonth);
@@ -72,20 +68,28 @@ public class UserController {
 		model.addAttribute("TotalExpensesForToday", TotalExpensesForToday);
 		
 		
-	
-		
-//		System.out.println("TotalExpensesForToday======>"+TotalExpensesForToday);
 		
 		
 		
+		List<Object[]> TotalExpenseOfAllMonth = expenseRepository.getTotalExpenseOfAllMonth();
+
+		model.addAttribute("TotalExpenseOfAllMonth", TotalExpenseOfAllMonth);
+		
+
 		
 		
+		List<Object[]> TotalExpenseOfAllDay = expenseRepository.getTotalExpenseOfAllDay();
+		
+		model.addAttribute("TotalExpenseOfAllDay", TotalExpenseOfAllDay);
+		
+		
+		List<Object[]> IncomeOfAllDays = incomeRepository.getIncomeOfAllDays();
+		
+		model.addAttribute("IncomeOfAllDays", IncomeOfAllDays);
 		
 		
 		return "Home";
 	}
-	
-	*/
 	
 	
 	@PostMapping(value = {"saveuser","adminsaveuser"})

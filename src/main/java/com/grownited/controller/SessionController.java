@@ -1,6 +1,5 @@
 package com.grownited.controller;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.ExpenseRepository;
+import com.grownited.repository.IncomeRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
 
@@ -34,6 +34,10 @@ public class SessionController {
 	
 	@Autowired
 	ExpenseRepository expenseRepository;
+	
+	
+	@Autowired
+	IncomeRepository incomeRepository;
 	
 	
 	@GetMapping(value = {"signup","adminnewuser","/"})
@@ -90,31 +94,9 @@ public class SessionController {
 		return "redirect:/login";// login url
 	}
 	
-	@GetMapping("home")
-	public String home(HttpSession session, Model model) {
-		
-     LocalDate today = LocalDate.now();
-		
-		int month = today.getMonthValue();
-		
-		int year = today.getYear();
-		
-		 Object TotalExpensesForToday = expenseRepository.getTotalExpensesForToday();
-		
-		Object TotalExpensesForThisMonth = expenseRepository.getTotalExpensesForThisMonth(month);	
-		
-		Object TotalExpensesForThisYear = expenseRepository.getTotalExpensesForThisYear(year);
-		
-		
-		model.addAttribute("TotalExpensesForThisMonth", TotalExpensesForThisMonth);
-		
-		model.addAttribute("TotalExpensesForThisYear", TotalExpensesForThisYear);
-		
-		model.addAttribute("TotalExpensesForToday", TotalExpensesForToday);
-		
-		
-		return "Home";
-	}
+	
+	
+	
 	
 	@GetMapping("forgetpassword")
 	public String forgetpassword() {

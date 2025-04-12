@@ -1,12 +1,15 @@
 package com.grownited.controller.admin;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.grownited.repository.ExpenseRepository;
+import com.grownited.repository.IncomeRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -16,6 +19,10 @@ public class AdminController {
 	
 	@Autowired
 	ExpenseRepository expenseRepository;
+	
+	
+	@Autowired
+	IncomeRepository incomeRepository;
 
 	@GetMapping("admindashboard")
 	public String adminDashboard(HttpSession session, Model model) {
@@ -49,11 +56,22 @@ public class AdminController {
 	
 		
 //		System.out.println("TotalExpensesForToday======>"+TotalExpensesForToday);
+			
+		List<Object[]> TotalExpenseOfAllMonth = expenseRepository.getTotalExpenseOfAllMonth();
+
+		model.addAttribute("TotalExpenseOfAllMonth", TotalExpenseOfAllMonth);
+		
+
 		
 		
+		List<Object[]> TotalExpenseOfAllDay = expenseRepository.getTotalExpenseOfAllDay();
+		
+		model.addAttribute("TotalExpenseOfAllDay", TotalExpenseOfAllDay);
 		
 		
+		List<Object[]> IncomeOfAllDays = incomeRepository.getIncomeOfAllDays();
 		
+		model.addAttribute("IncomeOfAllDays", IncomeOfAllDays);
 		
 		
 		return "AdminDashboard";
@@ -96,7 +114,24 @@ public class AdminController {
 		
 		
 		@GetMapping("test1")
-		public String test1() {
+		public String test1(Model model) {
+			
+			
+
+			List<Object[]> TotalExpenseOfAllMonth = expenseRepository.getTotalExpenseOfAllMonth();
+			
+			model.addAttribute("TotalExpenseOfAllMonth", TotalExpenseOfAllMonth);
+			
+			
+			List<Object[]> TotalExpenseOfAllDay = expenseRepository.getTotalExpenseOfAllDay();
+			
+			model.addAttribute("TotalExpenseOfAllDay", TotalExpenseOfAllDay);
+			
+			
+			List<Object[]> IncomeOfAllDays = incomeRepository.getIncomeOfAllDays();
+			
+			model.addAttribute("IncomeOfAllDays", IncomeOfAllDays);
+			
 			
 			return "Test1";
 		}

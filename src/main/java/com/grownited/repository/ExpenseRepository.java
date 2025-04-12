@@ -24,7 +24,15 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Integer>
 	
 	@Query(value = "select sum(amount) as total_expense from expenses where  transaction_date = curdate()", nativeQuery = true)
 	Object getTotalExpensesForToday();
+
 	
+	
+	@Query(value = "SELECT YEAR(STR_TO_DATE(transaction_date, '%Y-%m-%d')) AS year, MONTH(STR_TO_DATE(transaction_date, '%Y-%m-%d')) AS month,  SUM(amount) AS total_expenses FROM    expenses WHERE  transaction_date IS NOT NULL GROUP BY     year, month ORDER BY  month  ASC", nativeQuery = true)
+	List<Object[]> getTotalExpenseOfAllMonth();
+	
+	
+	@Query(value = "SELECT DATE(STR_TO_DATE(transaction_date, '%Y-%m-%d')) AS expense_date, SUM(amount) AS total_expenses FROM  expenses WHERE  transaction_date IS NOT NULL GROUP BY  expense_date ORDER BY  expense_date ASC", nativeQuery = true)
+	List<Object[]> getTotalExpenseOfAllDay();
 	
 //
 //	@Query(value = "select sum(amount) as total_expense from expenses where user_id = 35 and month(transaction_date) =  :month", nativeQuery = true)

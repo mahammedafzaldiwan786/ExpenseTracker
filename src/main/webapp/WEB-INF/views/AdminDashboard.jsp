@@ -644,7 +644,7 @@
             <div class="col-12">
               <div class="card">
 
-                <div class="filter">
+           <!--       <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -655,7 +655,7 @@
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div>		-->
 
                 <div class="card-body">
                   <h5 class="card-title">Reports <span>/Today</span></h5>
@@ -771,13 +771,13 @@
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Expense',
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data: [${TotalExpenseOfAllDay[0][1]}, ${TotalExpenseOfAllDay[1][1]}, ${TotalExpenseOfAllDay[2][1]}, ${TotalExpenseOfAllDay[3][1]}, ${TotalExpenseOfAllDay[4][1]}, ${TotalExpenseOfAllDay[5][1]}, ${TotalExpenseOfAllDay[6][1]}],
                         }, {
                           name: 'Income',
-                          data: [11, 32, 45, 32, 34, 52, 41]
+                          data: [${IncomeOfAllDays[0][1]}, ${IncomeOfAllDays[1][1]}, ${IncomeOfAllDays[2][1]}, ${IncomeOfAllDays[3][1]}, ${IncomeOfAllDays[4][1]}, ${IncomeOfAllDays[5][1]}, ${IncomeOfAllDays[6][1]}]
                         }, {
                           name: 'Budget',
-                          data: [15, 11, 32, 18, 9, 24, 11]
+                          data: [1500, 1100, 3200, 1800, 9000, 2400, 1100]
                         }],
                         chart: {
                           height: 350,
@@ -826,49 +826,60 @@
             </div><!-- End Reports -->
             
             
-            <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
+                 <!-- Bar Chart -->
+                  <div class="card-body">
+              <h5 class="card-title">Bar CHart</h5>
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
+             
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
+            </div>
+              <canvas id="barChart" style="max-height: 400px; display: block; box-sizing: border-box; height: 221px; width: 443px;" width="443" height="221"></canvas>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new Chart(document.querySelector('#barChart'), {
+                    type: 'bar',
+                    data: {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                      datasets: [{
+                        label: 'Bar Chart',
+                        data: [${TotalExpenseOfAllMonth[0][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[2][2]}, ${TotalExpenseOfAllMonth[3][2]}, ${TotalExpenseOfAllMonth[4][2]}, ${TotalExpenseOfAllMonth[5][2]}],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                          'rgba(255, 205, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(255, 159, 64)',
+                          'rgb(255, 205, 86)',
+                          'rgb(75, 192, 192)',
+                          'rgb(54, 162, 235)',
+                          'rgb(153, 102, 255)',
+                          'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {
+                      scales: {
+                        y: {
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  });
+                });
+              </script>
+              <!-- End Bar CHart -->
 
-                <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
-                  <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns"><div class="datatable-top">
-    <div class="datatable-dropdown">
-            <label>
-                <select class="datatable-selector" name="per-page"><option value="5">5</option><option value="10" selected="">10</option><option value="15">15</option><option value="-1">All</option></select> entries per page
-            </label>
-        </div>
-    <div class="datatable-search">
-            <input class="datatable-input" placeholder="Search..." type="search" name="search" title="Search within table">
-        </div>
-</div>
-<div class="datatable-container"><table class="table table-borderless datatable datatable-table"><thead><tr><th scope="col" data-sortable="true" style="width: 10.749185667752444%;"><button class="datatable-sorter">#</button></th><th scope="col" data-sortable="true" style="width: 23.452768729641694%;"><button class="datatable-sorter">Customer</button></th><th scope="col" data-sortable="true" style="width: 39.25081433224756%;"><button class="datatable-sorter">Product</button></th><th scope="col" data-sortable="true" style="width: 11.726384364820847%;"><button class="datatable-sorter">Price</button></th><th scope="col" data-sortable="true" class="red" style="width: 14.82084690553746%;"><button class="datatable-sorter">Status</button></th></tr></thead><tbody><tr data-index="0"><td scope="row"><a href="#">#2457</a></td><td>Brandon Jacob</td><td><a href="#" class="text-primary">At praesentium minu</a></td><td>$64</td><td class="green"><span class="badge bg-success">Approved</span></td></tr><tr data-index="1"><td scope="row"><a href="#">#2147</a></td><td>Bridie Kessler</td><td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td><td>$47</td><td class="green"><span class="badge bg-warning">Pending</span></td></tr><tr data-index="2"><td scope="row"><a href="#">#2049</a></td><td>Ashleigh Langosh</td><td><a href="#" class="text-primary">At recusandae consectetur</a></td><td>$147</td><td class="green"><span class="badge bg-success">Approved</span></td></tr><tr data-index="3"><td scope="row"><a href="#">#2644</a></td><td>Angus Grady</td><td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td><td>$67</td><td class="green"><span class="badge bg-danger">Rejected</span></td></tr><tr data-index="4"><td scope="row"><a href="#">#2644</a></td><td>Raheem Lehner</td><td><a href="#" class="text-primary">Sunt similique distinctio</a></td><td>$165</td><td class="green"><span class="badge bg-success">Approved</span></td></tr></tbody></table></div>
-<div class="datatable-bottom">
-    <div class="datatable-info">Showing 1 to 5 of 5 entries</div>
-    <nav class="datatable-pagination"><ul class="datatable-pagination-list"></ul></nav>
-</div></div>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
 
             <!-- Top Selling -->
-            <div class="col-12">
+           <!-- <div class="col-12">
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
@@ -940,6 +951,8 @@
 
               </div>
             </div><!-- End Top Selling -->
+            
+           
 
           </div>
         </div><!-- End Left side columns -->
@@ -948,6 +961,7 @@
         <div class="col-lg-4">
 
           <!-- Recent Activity -->
+          <!--
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -974,7 +988,7 @@
                     Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
                   </div>
                 </div><!-- End activity item-->
-
+<!--
                 <div class="activity-item d-flex">
                   <div class="activite-label">56 min</div>
                   <i class="bi bi-circle-fill activity-badge text-danger align-self-start"></i>
@@ -982,7 +996,7 @@
                     Voluptatem blanditiis blanditiis eveniet
                   </div>
                 </div><!-- End activity item-->
-
+<!--
                 <div class="activity-item d-flex">
                   <div class="activite-label">2 hrs</div>
                   <i class="bi bi-circle-fill activity-badge text-primary align-self-start"></i>
@@ -990,7 +1004,8 @@
                     Voluptates corrupti molestias voluptatem
                   </div>
                 </div><!-- End activity item-->
-
+<!--
+  
                 <div class="activity-item d-flex">
                   <div class="activite-label">1 day</div>
                   <i class="bi bi-circle-fill activity-badge text-info align-self-start"></i>
@@ -998,6 +1013,7 @@
                     Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
                   </div>
                 </div><!-- End activity item-->
+<!--
 
                 <div class="activity-item d-flex">
                   <div class="activite-label">2 days</div>
@@ -1005,7 +1021,12 @@
                   <div class="activity-content">
                     Est sit eum reiciendis exercitationem
                   </div>
-                </div><!-- End activity item-->
+                </div>
+                
+                
+                
+                <!-- End activity item-->
+<!--
 
                 <div class="activity-item d-flex">
                   <div class="activite-label">4 weeks</div>
@@ -1014,6 +1035,7 @@
                     Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
                   </div>
                 </div><!-- End activity item-->
+<!--
 
               </div>
 
@@ -1023,7 +1045,9 @@
          
           <!-- Budget Report -->
           <div class="card">
-            <div class="filter">
+          
+          
+          <!--  <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
@@ -1034,10 +1058,10 @@
                 <li><a class="dropdown-item" href="#">This Month</a></li>
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
-            </div>
+            </div>	-->
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+              <h5 class="card-title">Budget Report <span>	<!--	| This Month		--></span></h5>
 
               <div id="budgetChart" style="min-height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" class="echart" _echarts_instance_="ec_1743573945640"><div style="position: relative; width: 274px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="274" height="400" style="position: absolute; left: 0px; top: 0px; width: 274px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
 
@@ -1099,7 +1123,8 @@
           
           <!-- Website Traffic -->
           <div class="card">
-            <div class="filter">
+           
+         <!--     <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
@@ -1110,10 +1135,10 @@
                 <li><a class="dropdown-item" href="#">This Month</a></li>
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
-            </div>
+            </div>		-->
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+              <h5 class="card-title">Website Traffic <span><!--| Today	--></span></h5>
 
               <div id="trafficChart" style="min-height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" class="echart" _echarts_instance_="ec_1743573945641"><div style="position: relative; width: 274px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="274" height="400" style="position: absolute; left: 0px; top: 0px; width: 274px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
 
@@ -1174,8 +1199,11 @@
 
             </div>
           </div><!-- End Website Traffic -->
+          
+         
 
           <!-- News & Updates Traffic -->
+          <!--
           <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -1225,13 +1253,13 @@
                 </div>
 
               </div><!-- End sidebar recent posts-->
-
+<!--
             </div>
           </div><!-- End News & Updates -->
-
+<!--
         </div><!-- End Right side columns -->
 
-      </div>
+     <!-- </div>   -->
     </section>
 
   </main><!-- End #main -->

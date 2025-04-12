@@ -715,13 +715,13 @@
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Expense',
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data: [${TotalExpenseOfAllDay[0][1]}, ${TotalExpenseOfAllDay[1][1]}, ${TotalExpenseOfAllDay[2][1]}, ${TotalExpenseOfAllDay[3][1]}, ${TotalExpenseOfAllDay[4][1]}, ${TotalExpenseOfAllDay[5][1]}, ${TotalExpenseOfAllDay[6][1]}],
                         }, {
                           name: 'Income',
-                          data: [11, 32, 45, 32, 34, 52, 41]
+                          data: [${IncomeOfAllDays[0][1]}, ${IncomeOfAllDays[1][1]}, ${IncomeOfAllDays[2][1]}, ${IncomeOfAllDays[3][1]}, ${IncomeOfAllDays[4][1]}, ${IncomeOfAllDays[5][1]}, ${IncomeOfAllDays[6][1]}]
                         }, {
                           name: 'Budget',
-                          data: [15, 11, 32, 18, 9, 24, 11]
+                          data: [1500, 1100, 3200, 1800, 9000, 2400, 1100]
                         }],
                         chart: {
                           height: 350,
@@ -768,6 +768,51 @@
 
               </div>
             </div><!-- End Reports -->
+            
+            
+              <!-- Bar Chart -->
+              <canvas id="barChart" style="max-height: 400px; display: block; box-sizing: border-box; height: 221px; width: 443px;" width="443" height="221"></canvas>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new Chart(document.querySelector('#barChart'), {
+                    type: 'bar',
+                    data: {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                      datasets: [{
+                        label: 'Bar Chart',
+                        data: [${TotalExpenseOfAllMonth[0][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[1][2]}, ${TotalExpenseOfAllMonth[2][2]}, ${TotalExpenseOfAllMonth[3][2]}, ${TotalExpenseOfAllMonth[4][2]}, ${TotalExpenseOfAllMonth[5][2]}],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                          'rgba(255, 205, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(255, 159, 64)',
+                          'rgb(255, 205, 86)',
+                          'rgb(75, 192, 192)',
+                          'rgb(54, 162, 235)',
+                          'rgb(153, 102, 255)',
+                          'rgb(201, 203, 207)'
+                        ],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {
+                      scales: {
+                        y: {
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  });
+                });
+              </script>
+              <!-- End Bar CHart -->
 
            
           </div>
@@ -790,6 +835,9 @@
               </ul>
             </div>
 
+
+
+			
 
           <!-- Budget Report -->
           <div class="card">
@@ -864,6 +912,8 @@
 
             </div>
           </div><!-- End Budget Report -->
+          
+          
 
 
 
